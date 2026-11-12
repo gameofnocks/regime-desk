@@ -1,6 +1,6 @@
 {
- "ran_at": "2026-11-12T12:50:09Z",
- "key_present": false,
+ "ran_at": "2026-11-12T12:55:16Z",
+ "key_present": true,
  "calls": {
   "aixbt_topics": {
    "http": 200,
@@ -34,19 +34,144 @@
    ]
   },
   "aixbt_intel": {
-   "skipped": "no AIXBT_API_KEY secret"
+   "http": 200,
+   "top": [
+    "data",
+    "meta",
+    "pagination",
+    "status"
+   ],
+   "count": 20,
+   "fields": [
+    "category",
+    "citations",
+    "clusters",
+    "cut",
+    "description",
+    "detectedAt",
+    "hasOfficialSource",
+    "headline",
+    "id",
+    "metrics",
+    "observationCount",
+    "projectId",
+    "projectName",
+    "referencesMetrics",
+    "reinforcedAt",
+    "sentiment"
+   ],
+   "clusters_fields": [
+    "id",
+    "name"
+   ]
   },
   "aixbt_chain_tokens": {
-   "skipped": "no AIXBT_API_KEY secret"
+   "http": 200,
+   "top": [
+    "data",
+    "meta",
+    "pagination",
+    "status"
+   ],
+   "count": 12,
+   "fields": [
+    "coingeckoData",
+    "createdAt",
+    "description",
+    "id",
+    "metrics",
+    "momentumContext",
+    "name",
+    "rank",
+    "rankBand",
+    "reinforcedAt",
+    "signals",
+    "tokens",
+    "trendScore",
+    "trendScoreDelta",
+    "updatedAt",
+    "xHandle"
+   ]
   },
   "aixbt_rh_buzz": {
-   "skipped": "no AIXBT_API_KEY secret"
+   "http": 200,
+   "top": [
+    "data",
+    "meta",
+    "pagination",
+    "status"
+   ],
+   "count": 50,
+   "fields": [
+    "coingeckoData",
+    "createdAt",
+    "id",
+    "metrics",
+    "momentumContext",
+    "name",
+    "rank",
+    "rankBand",
+    "reinforcedAt",
+    "signals",
+    "tokens",
+    "trendScore",
+    "trendScoreDelta",
+    "updatedAt"
+   ]
   },
   "aixbt_base_buzz": {
-   "skipped": "no AIXBT_API_KEY secret"
+   "http": 200,
+   "top": [
+    "data",
+    "meta",
+    "pagination",
+    "status"
+   ],
+   "count": 50,
+   "fields": [
+    "coingeckoData",
+    "createdAt",
+    "description",
+    "id",
+    "metrics",
+    "momentumContext",
+    "name",
+    "rank",
+    "rankBand",
+    "reinforcedAt",
+    "signals",
+    "tokens",
+    "trendScore",
+    "trendScoreDelta",
+    "updatedAt",
+    "xHandle"
+   ]
   },
   "aixbt_launches": {
-   "skipped": "no AIXBT_API_KEY secret"
+   "http": 200,
+   "top": [
+    "data",
+    "meta",
+    "pagination",
+    "status"
+   ],
+   "count": 50,
+   "fields": [
+    "coingeckoData",
+    "createdAt",
+    "id",
+    "metrics",
+    "momentumContext",
+    "name",
+    "rank",
+    "rankBand",
+    "reinforcedAt",
+    "signals",
+    "tokens",
+    "trendScore",
+    "trendScoreDelta",
+    "updatedAt"
+   ]
   }
  }
 }
