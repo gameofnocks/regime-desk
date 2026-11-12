@@ -1,0 +1,42 @@
+name: AIXBT narratives
+
+# Fetches AIXBT topics and project intel four times a day and stores them encrypted for the site.
+on:
+  schedule:
+    - cron: "17 1,7,13,19 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "tools/aixbt_fetch.py"
+      - ".github/workflows/aixbt.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aixbt
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install cryptography
+      - name: Fetch and encrypt
+        env:
+          AIXBT_API_KEY: ${{ secrets.AIXBT_API_KEY }}
+        run: python3 tools/aixbt_fetch.py || true
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add aixbt.bin aixbt_status.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "AIXBT update"
+          git pull --rebase origin main
+          git push origin main
