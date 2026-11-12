@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Regime Desk">
+<meta name="theme-color" content="#0a0a0a">
+<title>Regime Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; min-height: 100%; background: #0a0a0a; color: #dddddd; }
+  body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 13px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+  #dash-root { padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+  .dash-select { font: inherit; padding: 4px 26px 4px 12px; appearance: none; -webkit-appearance: none; cursor: pointer; outline-offset: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238f8f8f' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
+  #lock { min-height: 100vh; display: grid; place-items: center; padding: 24px; box-sizing: border-box; }
+  #lock form { width: 100%; max-width: 320px; display: grid; gap: 12px; }
+  #lock h1 { font-size: 22px; font-weight: 450; letter-spacing: -0.25px; color: #fff; margin: 0 0 4px; }
+  #lock input[type=password] { font: inherit; font-size: 16px; color: #fff; background: #121212; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; padding: 11px 12px; outline: none; }
+  #lock input[type=password]:focus { border-color: rgba(255,255,255,.4); }
+  #lock button { font: inherit; font-size: 14px; font-weight: 500; color: #0a0a0a; background: #fff; border: 0; border-radius: 999px; padding: 10px 16px; cursor: pointer; }
+  #lock button[disabled] { opacity: .5; cursor: default; }
+  #lock label { display: flex; gap: 8px; align-items: center; color: #8f8f8f; font-size: 12px; }
+  #lock p { margin: 0; color: #8f8f8f; font-size: 12px; min-height: 18px; }
+  #lock p.err { color: #eb6f62; }
+  #bar { position: fixed; right: 10px; bottom: 10px; z-index: 50; display: flex; gap: 6px; opacity: .55; }
+  #bar[hidden] { display: none; }
+  #bar:hover { opacity: 1; }
+  #bar button { font: inherit; font-size: 11px; color: #8f8f8f; background: #1a1a1a; border: 0; border-radius: 999px; padding: 4px 10px; cursor: pointer; }
+  #bar span { font-size: 11px; color: #5c5c5c; align-self: center; }
+</style>
+</head>
+<body>
+<div id="lock">
+  <form id="lock-form" autocomplete="off">
+    <h1>Regime Desk</h1>
+    <input id="pw" type="password" placeholder="Passphrase" aria-label="Passphrase" autocomplete="current-password" autofocus>
+    <label><input id="keep" type="checkbox" checked> Stay unlocked on this device</label>
+    <button id="go" type="submit">Open</button>
+    <p id="msg" role="status"></p>
+  </form>
+</div>
+<div id="dash-root" hidden></div>
+<div id="bar" hidden><span id="built"></span><button id="lock-btn" type="button" title="Forget the key on this device">Lock</button></div>
+<script src="d3.min.js"></script>
+<script>
+(function () {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const KEY_AT = 'rd-site-key', PARAMS_AT = 'rd-params', LINK_AT = 'rd-link';
+  const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }, del: (k) => { try { localStorage.removeItem(k); } catch (e) {} } };
+  const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+  const toB64 = (u8) => btoa(String.fromCharCode.apply(null, Array.from(u8)));
+  const bust = () => '?t=' + Math.floor(Date.now() / 60000);
+
+  // the personal link carries a secret after the #. It never leaves this browser: keep it for this device and clear it from the address bar
+  const readLink = () => {
+    const m = /[#&]k=([A-Za-z0-9_-]{16,})/.exec(location.hash || '');
+    if (m) { store.set(LINK_AT, m[1]); try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
+  };
+  readLink(); window.addEventListener('hashchange', readLink);
+
+  // ---- unlocking: passphrase (plus the link secret) -> key.json -> site key -> app.bin and data.bin
+  async function siteKeyFromPass(pass) {
+    const k = await (await fetch('key.json' + bust(), { cache: 'no-store' })).json();
+    const link = store.get(LINK_AT) || '';
+    if (k.link && !link) { const e = new Error('Open your personal link once on this device, then enter the passphrase.'); e.name = 'NeedLink'; throw e; }
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(k.link ? pass + '\n' + link : pass), 'PBKDF2', false, ['deriveKey']);
+    const kek = await crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b64(k.salt), iterations: k.iter }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    return new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(k.nonce) }, kek, b64(k.wrapped)));
+  }
+  async function open(name, raw) {
+    const buf = new Uint8Array(await (await fetch(name + bust(), { cache: 'no-store' })).arrayBuffer());
+    const key = await crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']);
+    const zipped = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: buf.slice(0, 12) }, key, buf.slice(12));
+    const text = await new Response(new Blob([zipped]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+    return JSON.parse(text);
+  }
+  async function unlock(raw) {
+    const [app, data] = await Promise.all([open('app.bin', raw), open('data.bin', raw)]);
+    start(app, data);
+  }
+  const say = (t, err) => { const m = $('msg'); m.textContent = t; m.className = err ? 'err' : ''; };
+  $('lock-form').addEventListener('submit', async (e) => {
+    e.preventDefault(); const pass = $('pw').value; if (!pass) return;
+    $('go').disabled = true; say('Opening…');
+    try {
+      const keep = $('keep').checked, raw = await siteKeyFromPass(pass);
+      await unlock(raw);
+      if (keep) store.set(KEY_AT, toB64(raw));
+    } catch (err) { console.error(err); if (!$('msg')) return; say(err && err.name === 'OperationError' ? 'That passphrase does not open it.' : err && err.name === 'NeedLink' ? err.message : 'Could not open: ' + (err && err.message ? err.message : 'unknown error'), true); $('go').disabled = false; }
+  });
+  $('lock-btn').addEventListener('click', () => { store.del(KEY_AT); location.reload(); });   // the link secret stays, so the passphrase alone reopens it here
+  (async () => {
+    if (!window.crypto || !crypto.subtle || !window.DecompressionStream) { say('This browser is too old to open the desk. Use a current Safari, Chrome or Firefox.', true); $('go').disabled = true; return; }
+    const saved = store.get(KEY_AT); if (!saved) return;
+    say('Opening…'); $('go').disabled = true;
+    try { await unlock(b64(saved)); } catch (err) { console.error(err); if (!$('msg')) return; store.del(KEY_AT); say('The saved key no longer fits. Enter the passphrase.', true); $('go').disabled = false; }
+  })();
+
+  // ---- a small stand-in for the dashboard runtime the page was written for
+  function start(app, bundle) {
+    const FILES = bundle.files || {}, SNAP = bundle.snap || {}, LIVE = {}, PENDING = {};
+    const loaders = {}, calcs = {}, draws = {}, mounted = new Map(); let cache = {};
+    let params = { perf_days: '365' };
+    const fresh = !store.get(PARAMS_AT);
+    try { Object.assign(params, JSON.parse(store.get(PARAMS_AT) || '{}')); } catch (e) {}
+    const COINS = { ubik: 'ubik', nock: 'nockchain', fables: 'fables', priors: 'priors-agent' };
+    const answerFor = (id) => {
+      const h = /^hist_(\w+)$/.exec(id);
+      if (h) { const k = id + ':' + params.perf_days; if (LIVE[k]) return LIVE[k]; if (String(params.perf_days) === '365' && SNAP[id]) return SNAP[id]; fetchHist(h[1], id, k); return PENDING[k] === 'failed' ? { error: { message: 'CoinGecko did not answer' } } : null; }
+      return LIVE[id] || SNAP[id];
+    };
+    function rows(id) {
+      if (cache[id]) return cache[id];
+      let r;
+      try {
+        if (calcs[id]) {
+          const ins = calcs[id].inputs.map(rows), bad = ins.find((x) => x.status !== 'ok');
+          if (bad) r = { status: bad.status, data: null, message: bad.message };
+          else { const out = calcs[id].fn.apply(null, ins.map((x) => x.data)); r = { status: 'ok', data: out }; }
+        } else if (FILES[id]) r = { status: 'ok', data: FILES[id].csv !== undefined ? d3.csvParse(FILES[id].csv) : FILES[id].json };
+        else {
+          const a = answerFor(id);
+          if (a === null) r = { status: 'loading', data: null };
+          else if (a === undefined) r = { status: 'error', data: null, message: 'Not part of the standalone copy' };
+          else { const out = loaders[id] ? loaders[id]({ answer: a, args: params }) : a; r = { status: 'ok', data: out.rows || out.data || out }; }
+        }
+      } catch (e) { r = { status: 'error', data: null, message: String(e && e.message || e) }; }
+      return (cache[id] = r);
+    }
+    function run(name) {
+      const f = draws[name]; if (!f) return;
+      document.querySelectorAll('[data-draw="' + name + '"]').forEach((el) => {
+        try {
+          if (typeof f === 'function') f(el);
+          else if (!mounted.has(el)) mounted.set(el, f.mount ? f.mount(el) : null);
+          else if (f.update) f.update(el, mounted.get(el));
+        } catch (e) { console.error('draw', name, e); }
+      });
+    }
+    let queued = false;
+    const runAll = () => { if (queued) return; queued = true; requestAnimationFrame(() => { queued = false; Object.keys(draws).forEach(run); }); };
+    const changed = () => { cache = {}; runAll(); };
+    window.dash = {
+      data: (id) => { const r = rows(id); return { status: r.status, data: r.data, message: r.message, columns: r.data && r.data.columns }; },
+      loader: (id, o) => { loaders[id] = o.fn; }, calc: (id, o) => { calcs[id] = o; },
+      draw: (name, f) => { if (f) draws[name] = f; else run(name); },
+      params: () => Object.assign({}, params),
+      setParams: (p) => { params = Object.assign({}, params, p); store.set(PARAMS_AT, JSON.stringify(params)); changed(); },
+      onData: (fn) => fn(), refresh: () => livePrices(), resetParams: () => { params = { perf_days: '365' }; store.del(PARAMS_AT); changed(); }, setLink: () => {}, colors: ['#888888'],
+    };
+
+    // live prices straight from CoinGecko's public feed, shaped like the connector's answer
+    const cg = async (path) => { const r = await fetch('https://api.coingecko.com/api/v3/' + path); if (!r.ok) throw new Error('CoinGecko ' + r.status); return r.json(); };
+    async function livePrices() {
+      try {
+        const ids = ((SNAP.cg_prices || {}).coins || []).map((c) => c.id); if (!ids.length) return;
+        const m = await cg('coins/markets?vs_currency=usd&ids=' + ids.join(',') + '&sparkline=true&price_change_percentage=24h');
+        LIVE.cg_prices = { coins: m.map((c) => ({ id: c.id, symbol: c.symbol, name: c.name, currentPrice: c.current_price, priceChangePercentage24h: c.price_change_percentage_24h, marketCap: c.market_cap, totalVolume: c.total_volume, sparkline7d: (c.sparkline_in_7d || {}).price || [] })) };
+        changed();
+      } catch (e) { console.warn('live prices', e); }
+    }
+    let chain = Promise.resolve();
+    function fetchHist(name, id, k) {
+      if (PENDING[k]) return; PENDING[k] = 'loading';
+      chain = chain.then(async () => {
+        try {
+          const p = (await cg('coins/' + COINS[name] + '/market_chart?vs_currency=usd&days=' + encodeURIComponent(params.perf_days))).prices;
+          LIVE[k] = { startTs: p[0][0], endTs: p[p.length - 1][0], prices: p.map((x) => x[1]) }; PENDING[k] = 'done';
+        } catch (e) { PENDING[k] = 'failed'; setTimeout(() => { delete PENDING[k]; }, 60000); }
+        changed(); await new Promise((r) => setTimeout(r, 1200));
+      });
+    }
+
+    // put the page in and run its scripts in order
+    const root = $('dash-root'), tpl = document.createElement('template'); tpl.innerHTML = app.page;
+    const scripts = Array.from(tpl.content.querySelectorAll('script')); scripts.forEach((s) => s.remove());
+    root.appendChild(tpl.content); root.hidden = false; $('lock').remove();
+    scripts.forEach((s) => { const n = document.createElement('script'); n.textContent = s.textContent; document.body.appendChild(n); });
+    $('built').textContent = 'data ' + new Date(bundle.built).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+    $('bar').hidden = false;
+    Object.keys(draws).forEach(run);
+    // AIXBT narratives need an account key, so on a first visit that module starts hidden (Modules brings it back)
+    if (fresh && !SNAP.aixbt_topics) { const x = document.querySelector('[data-hide="m-talk"]'); if (x) x.click(); }
+    livePrices(); setInterval(() => { if (!document.hidden) livePrices(); }, 180000);
+  }
+})();
+</script>
+</body>
+</html>
