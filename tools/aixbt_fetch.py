@@ -65,20 +65,22 @@ def items(d):
 
 
 def shape(name, rows):
-    """Field names differ a little between AIXBT's web API and the connector the page was written for."""
+    """Keeps only what the page shows, under the field names its loaders expect.
+    (AIXBT's web API names a few things differently from the connector the page was written for.)"""
     out = []
     for r in rows:
-        r = dict(r)
         if name == "aixbt_topics":
-            r.setdefault("trend", r.get("score")); r.setdefault("postCount", r.get("tweetCount"))
-            r["clusters"] = [c if "cluster" in c else {"cluster": {"id": c.get("id"), "name": c.get("name")}, "share": c.get("share")} for c in r.get("clusters") or []]
+            out.append({"id": r.get("id"), "rank": r.get("rank"), "name": r.get("name"), "summary": r.get("summary"),
+                        "trend": r.get("trend", r.get("score")), "postCount": r.get("postCount", r.get("tweetCount")), "authorCount": r.get("authorCount"),
+                        "clusters": [c if "cluster" in c else {"cluster": {"id": c.get("id"), "name": c.get("name")}, "share": c.get("share")} for c in r.get("clusters") or []]})
         elif name == "aixbt_intel":
-            if not isinstance(r.get("project"), dict):
-                r["project"] = {"name": r.get("projectName") or r.get("project")}
-            r.setdefault("hasOfficialSource", r.get("official"))
+            proj = r.get("project") if isinstance(r.get("project"), dict) else {"name": r.get("projectName")}
+            out.append({"id": r.get("id"), "detectedAt": r.get("detectedAt"), "project": {"name": proj.get("name")}, "headline": r.get("headline"),
+                        "grade": str(r.get("grade") or r.get("cut") or "").lower(), "category": r.get("category"), "hasOfficialSource": bool(r.get("hasOfficialSource"))})
         else:
-            r.setdefault("trend", r.get("score")); r.setdefault("symbol", r.get("ticker"))
-        out.append(r)
+            cg = r.get("coingeckoData") if isinstance(r.get("coingeckoData"), dict) else {}
+            out.append({"id": r.get("id"), "name": r.get("name"), "symbol": r.get("symbol") or cg.get("symbol"), "slug": r.get("slug") or cg.get("slug") or cg.get("apiId"),
+                        "trend": r.get("trend", r.get("trendScore")), "rank": r.get("rank"), "reinforcedAt": r.get("reinforcedAt"), "updatedAt": r.get("updatedAt"), "createdAt": r.get("createdAt")})
     return out
 
 
@@ -103,14 +105,6 @@ def main():
                     st[sub + "_fields"] = sorted(v.keys())
                 elif v is not None:
                     st[sub + "_type"] = type(v).__name__
-            # a few plain values that show the format (grade labels, score scale, ticker spelling). Nothing private.
-            if isinstance(rows[0], dict):
-                r0 = rows[0]
-                st["sample"] = {k: r0.get(k) for k in ("cut", "category", "sentiment", "rank", "rankBand", "trendScore", "trendScoreDelta") if k in r0}
-                if name == "aixbt_chain_tokens":
-                    st["sample"]["scores"] = [[(r.get("coingeckoData") or {}).get("symbol") if isinstance(r.get("coingeckoData"), dict) else None, r.get("name"), r.get("trendScore"), r.get("rank")] for r in rows[:12]]
-                    t0 = r0.get("tokens"); st["sample"]["token0"] = t0[0] if isinstance(t0, list) and t0 else t0
-                    cg = r0.get("coingeckoData"); st["sample"]["coingecko0"] = {k: (v if isinstance(v, (str, int, float, bool)) or v is None else type(v).__name__) for k, v in cg.items()} if isinstance(cg, dict) else cg
         if isinstance(d, dict) and d.get("error"):
             st["error"] = d["error"]
         status["calls"][name] = st
