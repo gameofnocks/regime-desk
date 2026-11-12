@@ -61,16 +61,22 @@
   const bust = () => '?t=' + Math.floor(Date.now() / 60000);
 
   // the personal link carries a secret after the #. It never leaves this browser: keep it for this device and clear it from the address bar
+  // kept in memory too, because some browsers (Brave with cookies blocked, private windows) refuse to store anything
+  let linkSecret = store.get(LINK_AT) || '';
+  const canStore = (() => { try { localStorage.setItem('rd-test', '1'); localStorage.removeItem('rd-test'); return true; } catch (e) { return false; } })();
   const readLink = () => {
     const m = /[#&]k=([A-Za-z0-9_-]{16,})/.exec(location.hash || '');
-    if (m) { store.set(LINK_AT, m[1]); try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
+    if (!m) return;
+    linkSecret = m[1]; store.set(LINK_AT, m[1]);
+    // only tidy the address bar when the secret is safely stored; otherwise leave it so a reload still works
+    if (canStore) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
   };
   readLink(); window.addEventListener('hashchange', readLink);
 
   // ---- unlocking: passphrase (plus the link secret) -> key.json -> site key -> app.bin and data.bin
   async function siteKeyFromPass(pass) {
     const k = await (await fetch('key.json' + bust(), { cache: 'no-store' })).json();
-    const link = store.get(LINK_AT) || '';
+    const link = linkSecret || store.get(LINK_AT) || '';
     if (k.link && !link) { const e = new Error('Open your personal link once on this device, then enter the passphrase.'); e.name = 'NeedLink'; throw e; }
     const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(k.link ? pass + '\n' + link : pass), 'PBKDF2', false, ['deriveKey']);
     const kek = await crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b64(k.salt), iterations: k.iter }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
@@ -99,6 +105,7 @@
   });
   $('lock-btn').addEventListener('click', () => { store.del(KEY_AT); location.reload(); });   // the link secret stays, so the passphrase alone reopens it here
   (async () => {
+    if (!canStore) { const k = $('keep'); k.checked = false; k.disabled = true; k.parentNode.lastChild.textContent = ' This browser blocks storage here, so use your personal link each time'; }
     if (!window.crypto || !crypto.subtle || !window.DecompressionStream) { say('This browser is too old to open the desk. Use a current Safari, Chrome or Firefox.', true); $('go').disabled = true; return; }
     const saved = store.get(KEY_AT); if (!saved) return;
     say('Opening…'); $('go').disabled = true;
