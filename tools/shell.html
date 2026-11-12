@@ -54,7 +54,7 @@
 (function () {
   'use strict';
   const $ = (id) => document.getElementById(id);
-  const KEY_AT = 'rd-site-key', PARAMS_AT = 'rd-params', LINK_AT = 'rd-link';
+  const KEY_AT = 'rd-site-key2', PARAMS_AT = 'rd-params', LINK_AT = 'rd-link';
   const store = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }, del: (k) => { try { localStorage.removeItem(k); } catch (e) {} } };
   const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
   const toB64 = (u8) => btoa(String.fromCharCode.apply(null, Array.from(u8)));
@@ -73,7 +73,7 @@
   };
   readLink(); window.addEventListener('hashchange', readLink);
 
-  // ---- unlocking: passphrase (plus the link secret) -> key.json -> site key -> app.bin and data.bin
+  // ---- unlocking: passphrase plus the link secret -> key.json -> the site's private key -> each file's own key -> the file
   async function siteKeyFromPass(pass) {
     const k = await (await fetch('key.json' + bust(), { cache: 'no-store' })).json();
     const link = linkSecret || store.get(LINK_AT) || '';
@@ -82,15 +82,21 @@
     const kek = await crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b64(k.salt), iterations: k.iter }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
     return new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(k.nonce) }, kek, b64(k.wrapped)));
   }
-  async function open(name, raw) {
-    const buf = new Uint8Array(await (await fetch(name + bust(), { cache: 'no-store' })).arrayBuffer());
-    const key = await crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']);
-    const zipped = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: buf.slice(0, 12) }, key, buf.slice(12));
+  // a file is: 2 bytes (length of its locked key), the locked key (RSA-OAEP), a 12-byte nonce, then AES-GCM over gzip
+  async function open(name, priv, optional) {
+    const res = await fetch(name + bust(), { cache: 'no-store' });
+    if (!res.ok) { if (optional) return null; throw new Error(name + ' did not load (' + res.status + ')'); }
+    const buf = new Uint8Array(await res.arrayBuffer()), n = (buf[0] << 8) | buf[1];
+    const fileKey = await crypto.subtle.decrypt({ name: 'RSA-OAEP' }, priv, buf.slice(2, 2 + n));
+    const key = await crypto.subtle.importKey('raw', fileKey, 'AES-GCM', false, ['decrypt']);
+    const zipped = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: buf.slice(2 + n, 14 + n) }, key, buf.slice(14 + n));
     const text = await new Response(new Blob([zipped]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
     return JSON.parse(text);
   }
   async function unlock(raw) {
-    const [app, data] = await Promise.all([open('app.bin', raw), open('data.bin', raw)]);
+    const priv = await crypto.subtle.importKey('pkcs8', raw, { name: 'RSA-OAEP', hash: 'SHA-256' }, false, ['decrypt']);
+    const [app, data, extra] = await Promise.all([open('app.bin', priv), open('data.bin', priv), open('aixbt.bin', priv, true).catch(() => null)]);
+    if (extra && extra.snap) { data.snap = Object.assign(data.snap || {}, extra.snap); data.aixbt_built = extra.built; }
     start(app, data);
   }
   const say = (t, err) => { const m = $('msg'); m.textContent = t; m.className = err ? 'err' : ''; };
@@ -137,7 +143,7 @@
         else {
           const a = answerFor(id);
           if (a === null) r = { status: 'loading', data: null };
-          else if (a === undefined) r = { status: 'error', data: null, message: 'Not part of the standalone copy' };
+          else if (a === undefined) r = /^aixbt_/.test(id) ? { status: 'loading', data: null } : { status: 'error', data: null, message: 'Not part of the standalone copy' };   // AIXBT parts without data show a dash
           else { const out = loaders[id] ? loaders[id]({ answer: a, args: params }) : a; r = { status: 'ok', data: out.rows || out.data || out }; }
         }
       } catch (e) { r = { status: 'error', data: null, message: String(e && e.message || e) }; }
