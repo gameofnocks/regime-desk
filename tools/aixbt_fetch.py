@@ -96,11 +96,21 @@ def main():
             st["data_keys"] = sorted(d["data"].keys())
         if rows:
             st["fields"] = sorted(rows[0].keys()) if isinstance(rows[0], dict) else type(rows[0]).__name__
-            for sub in ("project", "cluster", "clusters"):
+            for sub in ("project", "cluster", "clusters", "tokens", "coingeckoData", "metrics", "signals", "momentumContext"):
                 v = rows[0].get(sub) if isinstance(rows[0], dict) else None
                 v = v[0] if isinstance(v, list) and v else v
                 if isinstance(v, dict):
                     st[sub + "_fields"] = sorted(v.keys())
+                elif v is not None:
+                    st[sub + "_type"] = type(v).__name__
+            # a few plain values that show the format (grade labels, score scale, ticker spelling). Nothing private.
+            if isinstance(rows[0], dict):
+                r0 = rows[0]
+                st["sample"] = {k: r0.get(k) for k in ("cut", "category", "sentiment", "rank", "rankBand", "trendScore", "trendScoreDelta") if k in r0}
+                if name == "aixbt_chain_tokens":
+                    st["sample"]["scores"] = [[(r.get("coingeckoData") or {}).get("symbol") if isinstance(r.get("coingeckoData"), dict) else None, r.get("name"), r.get("trendScore"), r.get("rank")] for r in rows[:12]]
+                    t0 = r0.get("tokens"); st["sample"]["token0"] = t0[0] if isinstance(t0, list) and t0 else t0
+                    cg = r0.get("coingeckoData"); st["sample"]["coingecko0"] = {k: (v if isinstance(v, (str, int, float, bool)) or v is None else type(v).__name__) for k, v in cg.items()} if isinstance(cg, dict) else cg
         if isinstance(d, dict) and d.get("error"):
             st["error"] = d["error"]
         status["calls"][name] = st
