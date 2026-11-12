@@ -1,5 +1,5 @@
 {
- "ran_at": "2026-11-12T12:55:16Z",
+ "ran_at": "2026-11-12T12:56:19Z",
  "key_present": true,
  "calls": {
   "aixbt_topics": {
@@ -31,7 +31,10 @@
     "id",
     "name",
     "share"
-   ]
+   ],
+   "sample": {
+    "rank": 1
+   }
   },
   "aixbt_intel": {
    "http": 200,
@@ -63,7 +66,19 @@
    "clusters_fields": [
     "id",
     "name"
-   ]
+   ],
+   "metrics_fields": [
+    "lastUpdatedAt",
+    "usd",
+    "usd24hChange",
+    "usd24hVol",
+    "usdMarketCap"
+   ],
+   "sample": {
+    "cut": "CHIPPED",
+    "category": "ONCHAIN_METRICS",
+    "sentiment": -1
+   }
   },
   "aixbt_chain_tokens": {
    "http": 200,
@@ -91,7 +106,154 @@
     "trendScoreDelta",
     "updatedAt",
     "xHandle"
-   ]
+   ],
+   "tokens_fields": [
+    "address",
+    "chain",
+    "source"
+   ],
+   "coingeckoData_fields": [
+    "apiId",
+    "categories",
+    "contractAddress",
+    "description",
+    "slug",
+    "symbol"
+   ],
+   "metrics_fields": [
+    "athChangePct",
+    "athDate",
+    "athUsd",
+    "high24h",
+    "lastUpdatedAt",
+    "low24h",
+    "priceChange14d",
+    "priceChange30d",
+    "priceChange7d",
+    "usd",
+    "usd24hChange",
+    "usd24hVol",
+    "usdMarketCap"
+   ],
+   "signals_fields": [
+    "activity",
+    "category",
+    "citations",
+    "clusters",
+    "cut",
+    "description",
+    "detectedAt",
+    "hasOfficialSource",
+    "headline",
+    "id",
+    "observationCount",
+    "projectId",
+    "projectName",
+    "referencesMetrics",
+    "reinforcedAt",
+    "sentiment"
+   ],
+   "momentumContext_fields": [
+    "bestRank14d",
+    "distinctClusters",
+    "leaderboard",
+    "peakRank48h",
+    "rankedSince",
+    "trendTrajectory"
+   ],
+   "sample": {
+    "rank": 7,
+    "rankBand": "strong",
+    "trendScore": 25.180964818264222,
+    "trendScoreDelta": 0,
+    "scores": [
+     [
+      "HYPE",
+      "Hyperliquid",
+      25.180964818264222,
+      7
+     ],
+     [
+      "BNB",
+      "BNB",
+      17.033843352772205,
+      31
+     ],
+     [
+      "BTC",
+      "Bitcoin",
+      6.013781230405884,
+      18
+     ],
+     [
+      "SOL",
+      "Solana",
+      2.1876057934564668,
+      21
+     ],
+     [
+      "ETH",
+      "Ethereum",
+      0.2579167630446868,
+      22
+     ],
+     [
+      "ARB",
+      "Arbitrum",
+      0,
+      null
+     ],
+     [
+      "BTC",
+      "BatCat",
+      0,
+      null
+     ],
+     [
+      "ETH",
+      "Ethereum",
+      0,
+      null
+     ],
+     [
+      "BTC",
+      "Osmosis allBTC",
+      0,
+      null
+     ],
+     [
+      "ETH",
+      "ethtard",
+      0,
+      null
+     ],
+     [
+      "SOL",
+      "Don't Lose Your Soul Chasing",
+      0,
+      null
+     ],
+     [
+      "SOL",
+      "NEAR Intents Bridged SOL",
+      0,
+      null
+     ]
+    ],
+    "token0": {
+     "chain": "hyperliquid",
+     "address": "0x0d01dc56dcaaca66ad901c959b4011ec",
+     "source": "coingecko"
+    },
+    "coingecko0": {
+     "apiId": "hyperliquid",
+     "symbol": "HYPE",
+     "slug": "hyperliquid",
+     "description": "Hyperliquid is a layer one (L1) blockchain best known for perpetual futures and spot trading. Beyond its flagship DEX trading platform, the ecosystem supports borrowing, lending, real world assets (RWAs), and a full-fledged Ethereum Virtual Machine (EVM), making it a leading force in decentralized finance (defi). \n\nJust as electronic trading dramatically improved markets in the 2000s, Hyperliquid offers an opportunity for a massive technical upgrade of the existing financial system through a transparent, efficient, and resilient blockchain. HYPE is the native token of the Hyperliquid blockchain, with a maximum supply of 1 billion.",
+     "contractAddress": "0x0d01dc56dcaaca66ad901c959b4011ec",
+     "categories": "list"
+    }
+   }
   },
   "aixbt_rh_buzz": {
    "http": 200,
@@ -117,7 +279,59 @@
     "trendScore",
     "trendScoreDelta",
     "updatedAt"
-   ]
+   ],
+   "tokens_fields": [
+    "address",
+    "chain",
+    "source"
+   ],
+   "coingeckoData_fields": [
+    "contractAddress",
+    "symbol"
+   ],
+   "metrics_fields": [
+    "high24h",
+    "lastUpdatedAt",
+    "low24h",
+    "priceChange14d",
+    "priceChange7d",
+    "usd",
+    "usd24hChange",
+    "usd24hVol",
+    "usdMarketCap"
+   ],
+   "signals_fields": [
+    "activity",
+    "category",
+    "citations",
+    "clusters",
+    "cut",
+    "description",
+    "detectedAt",
+    "hasOfficialSource",
+    "headline",
+    "id",
+    "observationCount",
+    "projectId",
+    "projectName",
+    "referencesMetrics",
+    "reinforcedAt",
+    "sentiment"
+   ],
+   "momentumContext_fields": [
+    "bestRank14d",
+    "distinctClusters",
+    "leaderboard",
+    "peakRank48h",
+    "rankedSince",
+    "trendTrajectory"
+   ],
+   "sample": {
+    "rank": 37,
+    "rankBand": "corroborated",
+    "trendScore": 12.022014276584834,
+    "trendScoreDelta": 0
+   }
   },
   "aixbt_base_buzz": {
    "http": 200,
@@ -145,7 +359,67 @@
     "trendScoreDelta",
     "updatedAt",
     "xHandle"
-   ]
+   ],
+   "tokens_fields": [
+    "address",
+    "chain",
+    "source"
+   ],
+   "coingeckoData_fields": [
+    "apiId",
+    "categories",
+    "contractAddress",
+    "description",
+    "slug",
+    "symbol"
+   ],
+   "metrics_fields": [
+    "athChangePct",
+    "athDate",
+    "athUsd",
+    "high24h",
+    "lastUpdatedAt",
+    "low24h",
+    "priceChange14d",
+    "priceChange30d",
+    "priceChange7d",
+    "usd",
+    "usd24hChange",
+    "usd24hVol",
+    "usdMarketCap"
+   ],
+   "signals_fields": [
+    "activity",
+    "category",
+    "citations",
+    "clusters",
+    "cut",
+    "description",
+    "detectedAt",
+    "hasOfficialSource",
+    "headline",
+    "id",
+    "observationCount",
+    "projectId",
+    "projectName",
+    "referencesMetrics",
+    "reinforcedAt",
+    "sentiment"
+   ],
+   "momentumContext_fields": [
+    "bestRank14d",
+    "distinctClusters",
+    "leaderboard",
+    "peakRank48h",
+    "rankedSince",
+    "trendTrajectory"
+   ],
+   "sample": {
+    "rank": 24,
+    "rankBand": "corroborated",
+    "trendScore": 35.962838407401534,
+    "trendScoreDelta": 0
+   }
   },
   "aixbt_launches": {
    "http": 200,
@@ -171,7 +445,59 @@
     "trendScore",
     "trendScoreDelta",
     "updatedAt"
-   ]
+   ],
+   "tokens_fields": [
+    "address",
+    "chain",
+    "source"
+   ],
+   "coingeckoData_fields": [
+    "contractAddress",
+    "symbol"
+   ],
+   "metrics_fields": [
+    "high24h",
+    "lastUpdatedAt",
+    "low24h",
+    "priceChange14d",
+    "priceChange7d",
+    "usd",
+    "usd24hChange",
+    "usd24hVol",
+    "usdMarketCap"
+   ],
+   "signals_fields": [
+    "activity",
+    "category",
+    "citations",
+    "clusters",
+    "cut",
+    "description",
+    "detectedAt",
+    "hasOfficialSource",
+    "headline",
+    "id",
+    "observationCount",
+    "projectId",
+    "projectName",
+    "referencesMetrics",
+    "reinforcedAt",
+    "sentiment"
+   ],
+   "momentumContext_fields": [
+    "bestRank14d",
+    "distinctClusters",
+    "leaderboard",
+    "peakRank48h",
+    "rankedSince",
+    "trendTrajectory"
+   ],
+   "sample": {
+    "rank": 37,
+    "rankBand": "corroborated",
+    "trendScore": 12.022014276584834,
+    "trendScoreDelta": 0
+   }
   }
  }
 }
