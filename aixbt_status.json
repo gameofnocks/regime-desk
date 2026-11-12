@@ -1,5 +1,5 @@
 {
- "ran_at": "2026-11-12T12:57:32Z",
+ "ran_at": "2026-11-12T20:48:40Z",
  "key_present": true,
  "calls": {
   "aixbt_topics": {
@@ -243,6 +243,7 @@
     "metrics",
     "momentumContext",
     "name",
+    "primaryComputedAt",
     "rank",
     "rankBand",
     "reinforcedAt",
