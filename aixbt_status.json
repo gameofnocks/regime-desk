@@ -1,0 +1,52 @@
+{
+ "ran_at": "2026-11-12T12:50:09Z",
+ "key_present": false,
+ "calls": {
+  "aixbt_topics": {
+   "http": 200,
+   "top": [
+    "data",
+    "status"
+   ],
+   "count": 25,
+   "data_keys": [
+    "completedAt",
+    "latestEvidenceAt",
+    "topics",
+    "windowStartedAt"
+   ],
+   "fields": [
+    "authorCount",
+    "clusters",
+    "frontierReport",
+    "id",
+    "lastSeenAt",
+    "name",
+    "rank",
+    "score",
+    "summary",
+    "tweetCount"
+   ],
+   "clusters_fields": [
+    "id",
+    "name",
+    "share"
+   ]
+  },
+  "aixbt_intel": {
+   "skipped": "no AIXBT_API_KEY secret"
+  },
+  "aixbt_chain_tokens": {
+   "skipped": "no AIXBT_API_KEY secret"
+  },
+  "aixbt_rh_buzz": {
+   "skipped": "no AIXBT_API_KEY secret"
+  },
+  "aixbt_base_buzz": {
+   "skipped": "no AIXBT_API_KEY secret"
+  },
+  "aixbt_launches": {
+   "skipped": "no AIXBT_API_KEY secret"
+  }
+ }
+}
