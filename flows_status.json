@@ -1,0 +1,12 @@
+{
+ "ran_at": "2026-11-15T10:18:08Z",
+ "pegged_skipped": [
+  "U",
+  "RWUSD"
+ ],
+ "coins": 100,
+ "last_hour": "2026-11-15T09:00:00Z",
+ "history_hours": 999,
+ "chains": 8,
+ "stable_readings_kept": 2
+}

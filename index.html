@@ -95,9 +95,12 @@
   }
   async function unlock(raw) {
     const priv = await crypto.subtle.importKey('pkcs8', raw, { name: 'RSA-OAEP', hash: 'SHA-256' }, false, ['decrypt']);
-    const [app, data, extra] = await Promise.all([open('app.bin', priv), open('data.bin', priv), open('aixbt.bin', priv, true).catch(() => null)]);
-    if (extra && extra.snap) { data.snap = Object.assign(data.snap || {}, extra.snap); data.aixbt_built = extra.built; }
-    start(app, data);
+    const more = (name) => open(name, priv, true).catch(() => null);   // parts that other jobs refresh on their own clock
+    const [app, data, extra, flows, nansen] = await Promise.all([open('app.bin', priv), open('data.bin', priv), more('aixbt.bin'), more('flows.bin'), more('nansen.bin')]);
+    data.files = data.files || {}; data.snap = data.snap || {};
+    if (extra && extra.snap) { Object.assign(data.snap, extra.snap); data.aixbt_built = extra.built; }
+    [flows, nansen].forEach((x) => { if (x) { Object.assign(data.files, x.files || {}); Object.assign(data.snap, x.snap || {}); } });
+    start(app, data, () => Promise.all([more('flows.bin'), more('nansen.bin')]));
   }
   const say = (t, err) => { const m = $('msg'); m.textContent = t; m.className = err ? 'err' : ''; };
   $('lock-form').addEventListener('submit', async (e) => {
@@ -119,7 +122,7 @@
   })();
 
   // ---- a small stand-in for the dashboard runtime the page was written for
-  function start(app, bundle) {
+  function start(app, bundle, again) {
     const FILES = bundle.files || {}, SNAP = bundle.snap || {}, LIVE = {}, PENDING = {};
     const loaders = {}, calcs = {}, draws = {}, mounted = new Map(); let cache = {};
     let params = { perf_days: '365' };
@@ -143,7 +146,7 @@
         else {
           const a = answerFor(id);
           if (a === null) r = { status: 'loading', data: null };
-          else if (a === undefined) r = /^aixbt_/.test(id) ? { status: 'loading', data: null } : { status: 'error', data: null, message: 'Not part of the standalone copy' };   // AIXBT parts without data show a dash
+          else if (a === undefined) r = /^(aixbt|nansen)_/.test(id) ? { status: 'loading', data: null } : { status: 'error', data: null, message: 'Not part of the standalone copy' };   // AIXBT parts without data show a dash
           else { const out = loaders[id] ? loaders[id]({ answer: a, args: params }) : a; r = { status: 'ok', data: out.rows || out.data || out }; }
         }
       } catch (e) { r = { status: 'error', data: null, message: String(e && e.message || e) }; }
@@ -204,6 +207,9 @@
     // AIXBT narratives need an account key, so on a first visit that module starts hidden (Modules brings it back)
     if (fresh && !SNAP.aixbt_topics) { const x = document.querySelector('[data-hide="m-talk"]'); if (x) x.click(); }
     livePrices(); setInterval(() => { if (!document.hidden) livePrices(); }, 180000);
+    // money flows are rebuilt every hour, so an open page picks the new file up without a reload
+    if (again) setInterval(async () => { if (document.hidden) return;
+      try { (await again()).forEach((x) => { if (x) { Object.assign(FILES, x.files || {}); Object.assign(SNAP, x.snap || {}); } }); changed(); } catch (e) { console.warn('flows refresh', e); } }, 600000);
   }
 })();
 </script>

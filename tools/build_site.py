@@ -18,7 +18,8 @@ from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
 UA = {"User-Agent": "Mozilla/5.0 (regime-desk site build)"}
-FILES = ["regime_history", "regime_components", "markets", "book", "chain_tvl", "calendar", "projection", "projection_summary",
+FILES = ["flows_market", "flows_coins", "flows_chains",   # also rebuilt hourly by the flows job, whose copy wins
+         "regime_history", "regime_components", "markets", "book", "chain_tvl", "calendar", "projection", "projection_summary",
          "forward", "holdings", "momentum", "alt_phase", "alt_phase_stats", "daily_summary", "themes", "stories", "ubik_forecasts", "book_history"]
 COINS = {"ubik": "ubik", "nock": "nockchain", "fables": "fables", "priors": "priors-agent"}   # page name -> CoinGecko id
 TICKER = ["bitcoin", "ethereum", "solana", "hyperliquid", "binancecoin", "arbitrum", "sp500-xstock", "nasdaq-xstock",

@@ -1,0 +1,43 @@
+name: Money flows
+
+# Every hour: exchange net flows (Binance public data) and stablecoin and DEX flow per chain (DefiLlama),
+# stored encrypted for the site. Public data, no keys.
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "tools/flows_fetch.py"
+      - ".github/workflows/flows.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: flows
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install cryptography
+      - name: Fetch and encrypt
+        run: |
+          python3 tools/flows_fetch.py /tmp/flows --state flows_state.json --seal tools/site_pub.pem flows.bin || true
+          cp /tmp/flows/flows_status.json flows_status.json || true
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add flows.bin flows_state.json flows_status.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Flows update"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin main && break; sleep 7; done
