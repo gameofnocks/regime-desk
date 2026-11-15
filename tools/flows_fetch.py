@@ -31,7 +31,12 @@ SKIP = {"USDC", "FDUSD", "TUSD", "USDP", "DAI", "BUSD", "USD1", "XUSD", "PYUSD",
 CHAINS = [("Ethereum", "Ethereum"), ("Tron", "Tron"), ("Solana", "Solana"), ("BSC", "BNB Chain"), ("Hyperliquid L1", "Hyperliquid"),
           ("Base", "Base"), ("Arbitrum", "Arbitrum"), ("Robinhood Chain", "Robinhood Chain")]   # DefiLlama's name, the desk's name
 NANSEN_CHAINS = [("rh", "robinhood"), ("base", "base")]
-NANSEN_FRAMES = ["1h", "6h", "24h", "7d"]
+NANSEN_FRAMES = ["6h", "24h", "7d"]                      # the 1h window is left to the live connector: a job cannot keep it fresh
+BOOK = [("ubik", "robinhood", "0x812486EAea648819853F8E372dc9f1516C7868Bd"), ("priors", "robinhood", "0xeDBf91223639800BCd5756815CAf908Df3b890bE"),
+        ("nock", "base", "0x9B5E262cF9bb04869ab40b19AF91D2dc85761722")]   # token contracts the desk follows
+BOOK_FRAMES = ["6h", "1d", "7d"]
+SEGMENTS = [("Smart Trader", "smart_trader"), ("Top PnL", "top_pnl"), ("Whale", "whale"), ("Public Figure", "public_figure"),
+            ("Fresh", "fresh_wallets"), ("Exchange", "exchange")]
 HOUR = 3600 * 1000
 
 
@@ -240,11 +245,36 @@ def nansen(pub, out):
                     st = {"error": str(e)[:160]}
                 status["calls"][name] = st
                 time.sleep(1)
+        for short, chain, addr in BOOK:          # each followed token: net dollars by kind of labelled wallet
+            for tf in BOOK_FRAMES:
+                name = f"nansen_tok_{short}_{tf}"
+                st = {}
+                try:
+                    d = get("https://api.nansen.ai/api/v1/tgm/flow-intelligence", tries=2,
+                            data=json.dumps({"chain": chain, "token_address": addr, "timeframe": tf}).encode(),
+                            headers={"apiKey": key, "Content-Type": "application/json", "Accept": "application/json"})
+                    rows = d.get("data") if isinstance(d, dict) else d
+                    r = rows[0] if isinstance(rows, list) and rows else rows if isinstance(rows, dict) else None
+                    st = {"http": 200, "top": sorted(d.keys()) if isinstance(d, dict) else type(d).__name__, "fields": sorted(r.keys()) if isinstance(r, dict) else None}
+                    if isinstance(r, dict):
+                        out_rows = []
+                        for label, pre in SEGMENTS:
+                            pick = lambda *words: next((num(v) for k, v in r.items() if k.startswith(pre) and all(w in k for w in words)), None)
+                            net, avg, cnt = pick("net", "flow"), pick("avg", "flow"), pick("wallet")
+                            out_rows.append({"segment": label, "net_usd": net or 0, "vs_avg": round(abs(net / avg), 1) if net and avg else None,
+                                             "wallets": int(cnt) if net and cnt else None})
+                        snap[name] = {"asof": status["ran_at"], "rows": out_rows}
+                except urllib.error.HTTPError as e:
+                    st = {"http": e.code, "error": e.read()[:200].decode("utf-8", "replace")}
+                except Exception as e:
+                    st = {"error": str(e)[:160]}
+                status["calls"][name] = st
+                time.sleep(1)
     json.dump(status, open("nansen_status.json", "w"), indent=1)
     if not snap:
         print("no Nansen data" + ("" if key else " (no NANSEN_API_KEY secret)")); return 0
     open(out, "wb").write(seal(pub, {"snap": snap, "built": status["ran_at"]}))
-    print("nansen written:", ", ".join(f"{k} {len(v['rows'])}" for k, v in snap.items()))
+    print("nansen written:", len(snap), "sets")
     return 0
 
 

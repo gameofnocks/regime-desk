@@ -32,6 +32,8 @@ SWAPS = [
     ("Your arrangement holds while the page is open. To make it the one the page always opens with, say “save layout” to Claude with the page open; Reset layout returns to it.",
      "Your arrangement is saved on this device. Reset layout returns to the default."),
     ("Open the desk in your phone's browser first, signed in to claude.ai, not inside the Claude app.", "Open this page in your phone's browser first."),
+    ("The 4h tab shows Nansen's 6h window, the nearest it has.",
+     "The 4h tab shows Nansen's 6h window, the nearest it has. On this site the Nansen rows are read three times a day, so the 1h tab stays empty."),
 ]
 
 

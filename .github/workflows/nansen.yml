@@ -1,15 +1,17 @@
 name: Nansen on-chain flows
 
-# Four times a day: Nansen's token screener for Robinhood Chain and Base, stored encrypted for the site.
-# Does nothing until the repository has a NANSEN_API_KEY secret. Each run makes 8 requests.
+# Three times a day: Nansen's token screener for Robinhood Chain and Base, and flows by wallet type for the
+# followed tokens, stored encrypted for the site. Does nothing until the repository has a NANSEN_API_KEY secret.
+# Each run makes 15 requests.
 on:
   schedule:
-    - cron: "23 */6 * * *"
+    - cron: "23 1,9,17 * * *"
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - ".github/workflows/nansen.yml"
+      - "nansen_trigger.txt"
 
 permissions:
   contents: write
