@@ -184,18 +184,18 @@
           + `<td>${when(p.opened)}</td><td class="wrap">${esc(p.why)}${p.review ? '<br><span style="color:var(--faint)">' + esc(p.review) + '</span>' : ''}</td></tr>`; }),
       'Nothing open. New trades are looked for once a day, after 13:00 UTC.');
 
-    // the scan, passed first
-    const kinds = { all: 'All', pass: 'Passed', contract: 'Contracts', asset: 'Assets' }; let tab = 'pass';
+    // the scan, trades first
+    const kinds = { all: 'All', pass: 'Would trade', contract: 'Contracts', asset: 'Assets' }; let tab = 'pass';
     const drawScan = () => {
       $('scan-tabs').innerHTML = Object.keys(kinds).map((k) => `<button data-k="${k}" class="${k === tab ? 'on' : ''}">${kinds[k]}</button>`).join('');
       const rows = SC.filter((r) => tab === 'all' || (tab === 'pass' ? r.pass : r.type === tab)).sort((a, b) => (b.pass ? 1 : 0) - (a.pass ? 1 : 0));
       table($('scan'), [['Result'], ['Forecast'], ['Instrument'], ['UBIK', 'num'], ['Market', 'num'], ['Edge / R:R', 'num'], ['Why']],
-        rows.map((r) => `<tr><td><span class="tag ${r.pass ? 'pass' : ''}">${r.pass ? 'trade' : 'pass'}</span></td><td class="wrap">${esc(r.claim)}</td>`
+        rows.map((r) => `<tr><td><span class="tag ${r.pass ? 'pass' : ''}">${r.pass ? 'trade' : 'skip'}</span></td><td class="wrap">${esc(r.claim)}</td>`
           + `<td class="wrap">${r.type === 'contract' ? esc(r.side + ' · ' + r.venue + ' · ' + (r.question || r.market)) + ' <span class="tag">' + esc(r.relation) + '</span>' : esc((r.name || r.symbol) + ' · ' + (r.class || ''))}</td>`
           + `<td class="num">${prob(r.ubik)}</td><td class="num">${r.type === 'contract' ? (r.ask == null ? '–' : 'ask ' + r.ask.toFixed(3)) : prob(r.market_prob)}</td>`
           + `<td class="num">${r.type === 'contract' ? (r.edge == null ? '–' : (r.edge * 100).toFixed(1) + ' pts') : (r.rr == null ? '–' : r.rr.toFixed(1))}</td>`
           + `<td class="wrap">${esc(r.why)}${r.review_reason ? '<br><span style="color:var(--faint)">' + esc(r.review_reason) + '</span>' : ''}</td></tr>`),
-        tab === 'pass' ? 'Nothing passed the last scan.' : 'No candidates.');
+        tab === 'pass' ? 'Nothing met the rules in the last scan, so the book made no trades.' : 'No candidates.');
       $('scan-tabs').querySelectorAll('button').forEach((b) => b.addEventListener('click', () => { tab = b.dataset.k; drawScan(); }));
     };
     drawScan();
