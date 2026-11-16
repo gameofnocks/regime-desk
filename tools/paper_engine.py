@@ -28,7 +28,7 @@ STATE, SEALED, STATUS = os.path.join(ROOT, "paper_state.enc"), os.path.join(ROOT
 # ---- the rules, in one place --------------------------------------------------------------------------------------
 START_CASH = 100_000.0
 SHRINK = 0.6               # weight on UBIK's figure; the rest on the market's (UBIK is good, not infallible)
-MIN_EDGE = 0.07            # contracts: fair value minus the price paid, after fees, at least 7 points
+MIN_EDGE = 0.05            # contracts: fair value minus the price paid, after fees, at least 5 points (was 7 until 17 Nov 2026)
 MIN_ROI = 0.15             # contracts: expected return on the stake at least 15%
 PRICE_BAND = (0.05, 0.95)  # no contracts priced at the extremes, where small errors decide everything
 KELLY = 0.25               # quarter Kelly
