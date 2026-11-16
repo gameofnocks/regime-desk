@@ -1,0 +1,15 @@
+{
+ "run": "2026-11-16T22:28:47Z",
+ "mode": "trade",
+ "errors": [
+  "review: JSONDecodeError"
+ ],
+ "review": false,
+ "ubik_key": "holder",
+ "forecasts": 85,
+ "with_probability": 85,
+ "marked": 0,
+ "candidates": 334,
+ "passed": 0,
+ "open": 0
+}
