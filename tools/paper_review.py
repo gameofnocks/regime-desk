@@ -79,7 +79,8 @@ def review(contracts, assets, status, batch=15):
             detail = type(e).__name__
             if hasattr(e, "code"):      # the API's status and error type, never the request or the key
                 try:
-                    detail += f" {e.code} " + json.loads(e.read()).get("error", {}).get("type", "")
+                    err = json.loads(e.read()).get("error", {})
+                    detail += f" {e.code} {err.get('type', '')}: {(err.get('message') or '')[:120]}"
                 except Exception:
                     detail += f" {e.code}"
             status["errors"].append(f"review batch: {detail}")
