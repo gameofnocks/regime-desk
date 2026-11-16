@@ -17,7 +17,7 @@ like the rest of the desk. paper_status.json says whether the run worked, with n
 Env: UBIK_KEY (a holder's key), PAPER_KEY (any long passphrase), ANTHROPIC_API_KEY (optional).
 Usage: python3 tools/paper_engine.py [--mark | --trade | --auto] [--dry]
 """
-import base64, gzip, hashlib, json, math, os, sys, time, urllib.error, urllib.parse, urllib.request
+import base64, gzip, hashlib, json, math, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 from datetime import datetime, timedelta, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
@@ -490,6 +490,22 @@ def main():
         if not dry:
             s["traded_on"] = t.strftime("%Y-%m-%d")
         status["candidates"] = len(contracts) + len(assets)
+        # counts only, so the public status file can say why nothing traded without showing what was looked at
+        reason = lambda r: re.sub(r"[-+]?\d[\d.,]*%?", "#", (r.get("why") or "").split(";")[0])[:60]
+        hist = {}
+        for r in contracts + assets:
+            if not r.get("pass"):
+                k = r["type"] + ": " + reason(r); hist[k] = hist.get(k, 0) + 1
+        status["why_not"] = dict(sorted(hist.items(), key=lambda kv: -kv[1])[:12])
+        status["contracts_seen"] = len(contracts)
+        status["contracts_positive_edge"] = sum(1 for c in contracts if (c.get("edge") or 0) > 0)
+        status["contracts_best_edge_pts"] = round(max([c.get("edge") or -1 for c in contracts] or [0]) * 100, 1)
+        rels = {}
+        for f in forecasts:
+            for m in f.get("markets") or []:
+                rels[m.get("relation")] = rels.get(m.get("relation"), 0) + 1
+        status["market_relations"] = rels
+        status["assets_by_class"] = {k: sum(1 for a in assets if a.get("class") == k) for k in {a.get("class") for a in assets}}
         status["passed"] = sum(1 for r in contracts + assets if r.get("pass"))
 
     eq = equity(s)
