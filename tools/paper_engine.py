@@ -497,6 +497,8 @@ def main():
             if not r.get("pass"):
                 k = r["type"] + ": " + reason(r); hist[k] = hist.get(k, 0) + 1
         status["why_not"] = dict(sorted(hist.items(), key=lambda kv: -kv[1])[:12])
+        exps = sorted((abs(a["expected_pct"]) for a in assets if a.get("expected_pct") is not None), reverse=True)
+        status["assets_expected_pct_top5"] = exps[:5]
         status["contracts_seen"] = len(contracts)
         status["contracts_positive_edge"] = sum(1 for c in contracts if (c.get("edge") or 0) > 0)
         status["contracts_best_edge_pts"] = round(max([c.get("edge") or -1 for c in contracts] or [0]) * 100, 1)

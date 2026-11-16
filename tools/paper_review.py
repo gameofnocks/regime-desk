@@ -27,7 +27,8 @@ resolution rule. Veto when dates, thresholds, sources or wording differ enough t
 For each item in "assets": estimate, for the life of the forecast up to its deadline:
   move_if_yes_pct  the asset's percent move if the forecast resolves YES (signed, e.g. -3.5)
   move_if_no_pct   its percent move if it resolves NO (signed)
-  market_prob      what the market currently prices as the chance of YES (0-1); use venue_prob when it is given
+  market_prob      the chance of YES that prices, polls and news coverage imply today (0-1), judged on your own;
+                   use venue_prob when it is given
   confidence       0-1, how much this event, rather than everything else, will drive the asset in that window
 Be realistic: one event rarely moves an index more than 1-2% or a currency more than 1-3%; commodities and crypto can
 move more on direct supply or regulatory news. If the link is weak, give small moves and low confidence.
@@ -68,9 +69,11 @@ def review(contracts, assets, status, batch=15):
                                       "market": c.get("question"), "venue": c["venue"], "market_ends": c.get("ends"), "relation": c["relation"],
                                       "inverted": c["inverted"], "side": c["side"]} for i, c in enumerate(items)], "assets": []}
         else:
-            payload = {"contracts": [], "assets": [{"key": i, "forecast": a["claim"], "deadline": a.get("deadline"), "ubik_probability": a["ubik"],
+            # UBIK's own figure and reasoning are left out on purpose: shown them, the estimate of what the market
+            # prices drifts toward UBIK's number and the gap the book trades on disappears
+            payload = {"contracts": [], "assets": [{"key": i, "forecast": a["claim"], "deadline": a.get("deadline"),
                                                     "venue_prob": a.get("venue_prob"), "asset": f"{a.get('name')} ({a.get('symbol')}, {a.get('class')})",
-                                                    "why_ubik_links_it": a.get("why_linked"), "ubik_reasoning": a.get("reasoning"),
+                                                    "how_the_outcome_touches_it": a.get("why_linked"),
                                                     "price": a.get("price"), "daily_atr_pct": round((a.get("atr_pct") or 0) * 100, 2)} for i, a in enumerate(items)]}
         try:
             ans = _ask(key, payload)
