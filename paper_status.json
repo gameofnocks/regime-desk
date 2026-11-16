@@ -1,5 +1,5 @@
 {
- "run": "2026-11-16T22:35:13Z",
+ "run": "2026-11-16T22:37:33Z",
  "mode": "trade",
  "errors": [],
  "review": true,
@@ -16,11 +16,19 @@
  "candidates": 334,
  "why_not": {
   "asset: single stock: watched, not traded": 219,
-  "asset: expected move under #": 82,
+  "asset: expected move under #": 76,
   "asset: no price feed for this symbol": 12,
   "asset: rate: not traded yet": 12,
-  "contract: edge after costs # points, # expected return": 9
+  "contract: edge after costs # points, # expected return": 9,
+  "asset: reward/risk # needs #": 6
  },
+ "assets_expected_pct_top5": [
+  1.02,
+  0.92,
+  0.92,
+  0.68,
+  0.59
+ ],
  "contracts_seen": 9,
  "contracts_positive_edge": 3,
  "contracts_best_edge_pts": 3.0,
@@ -33,12 +41,12 @@
   "same": 4
  },
  "assets_by_class": {
-  "currency": 34,
   "commodity": 39,
   "crypto": 5,
   "stock": 219,
-  "index": 16,
-  "rate": 12
+  "rate": 12,
+  "currency": 34,
+  "index": 16
  },
  "passed": 0,
  "open": 0
