@@ -26,6 +26,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main          # the newest book, not the commit the run was started from
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -50,4 +52,4 @@ jobs:
           git add paper_state.enc paper.bin paper_status.json 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -m "Paper book update"
-          for i in 1 2 3; do git pull --rebase origin main && git push origin main && break; sleep 7; done
+          for i in 1 2 3; do git pull --rebase -X theirs origin main && git push origin main && break; git rebase --abort 2>/dev/null; sleep 7; done
