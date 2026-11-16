@@ -1,13 +1,13 @@
 {
- "run": "2026-11-16T22:33:54Z",
+ "run": "2026-11-16T22:34:33Z",
  "mode": "trade",
  "errors": [
-  "review batch: HTTPError 400 invalid_request_error",
-  "review batch: HTTPError 400 invalid_request_error",
-  "review batch: HTTPError 400 invalid_request_error",
-  "review batch: HTTPError 400 invalid_request_error",
-  "review batch: HTTPError 400 invalid_request_error",
-  "review batch: HTTPError 400 invalid_request_error"
+  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model.",
+  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model.",
+  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model.",
+  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model.",
+  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model.",
+  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model."
  ],
  "review": false,
  "ubik_key": "holder",
@@ -40,12 +40,12 @@
   "same": 4
  },
  "assets_by_class": {
-  "crypto": 5,
-  "commodity": 39,
   "index": 16,
-  "stock": 219,
+  "commodity": 39,
   "rate": 12,
-  "currency": 34
+  "currency": 34,
+  "stock": 219,
+  "crypto": 5
  },
  "passed": 0,
  "open": 0
