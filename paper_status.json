@@ -1,5 +1,5 @@
 {
- "run": "2026-11-16T22:37:33Z",
+ "run": "2026-11-16T23:05:21Z",
  "mode": "trade",
  "errors": [],
  "review": true,
@@ -23,11 +23,11 @@
   "asset: reward/risk # needs #": 6
  },
  "assets_expected_pct_top5": [
-  1.02,
   0.92,
-  0.92,
-  0.68,
-  0.59
+  0.83,
+  0.81,
+  0.74,
+  0.69
  ],
  "contracts_seen": 9,
  "contracts_positive_edge": 3,
@@ -42,11 +42,11 @@
  },
  "assets_by_class": {
   "commodity": 39,
-  "crypto": 5,
-  "stock": 219,
-  "rate": 12,
   "currency": 34,
-  "index": 16
+  "index": 16,
+  "rate": 12,
+  "crypto": 5,
+  "stock": 219
  },
  "passed": 0,
  "open": 0
