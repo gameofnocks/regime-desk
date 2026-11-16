@@ -345,7 +345,7 @@ def asset_candidates(s, forecasts, status):
                    "class": a.get("kind"), "why_linked": a.get("why"), "ubik": p_u, "venue_prob": venue_prob, "deadline": f.get("deadline"),
                    "reasoning": (f.get("reasoning") or "")[:800], "rises_if": f.get("rises_if"), "falls_if": f.get("falls_if")}
             if a.get("kind") not in ASSET_KINDS:
-                row.update({"pass": False, "why": "single stock: watched, not traded"}); out.append(row); continue
+                row.update({"pass": False, "why": "single stock: watched, not traded" if a.get("kind") == "stock" else f"{a.get('kind')}: not traded yet"}); out.append(row); continue
             sym = yahoo_symbol(a)
             if not sym:
                 row.update({"pass": False, "why": "no price feed for this symbol"}); out.append(row); continue

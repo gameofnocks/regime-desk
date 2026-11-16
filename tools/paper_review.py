@@ -76,7 +76,13 @@ def review(contracts, assets, status, batch=15):
             ans = _ask(key, payload)
         except Exception as e:
             fails += 1
-            status["errors"].append(f"review batch: {type(e).__name__}")
+            detail = type(e).__name__
+            if hasattr(e, "code"):      # the API's status and error type, never the request or the key
+                try:
+                    detail += f" {e.code} " + json.loads(e.read()).get("error", {}).get("type", "")
+                except Exception:
+                    detail += f" {e.code}"
+            status["errors"].append(f"review batch: {detail}")
             for x in items:     # an unreviewed contract does not trade; an unreviewed asset is skipped
                 x.update({"pass": False, "why": "the Claude review did not answer for it"})
             continue
