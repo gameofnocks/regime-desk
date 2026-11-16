@@ -452,6 +452,9 @@ def main():
     dry = "--dry" in args
     t = now()
     status = {"run": iso(t), "mode": "mark", "errors": [], "review": None}
+    if len(os.environ.get("PAPER_KEY", "")) < 16:      # not set up yet: say so and stop without failing the job
+        status["errors"].append("waiting for the PAPER_KEY secret")
+        json.dump(status, open(STATUS, "w"), indent=1); log("no PAPER_KEY yet; nothing to do"); return
     s = load_state()
     try:
         forecasts = ubik_open(status)
