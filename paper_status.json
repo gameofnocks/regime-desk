@@ -1,15 +1,8 @@
 {
- "run": "2026-11-16T22:34:33Z",
+ "run": "2026-11-16T22:35:13Z",
  "mode": "trade",
- "errors": [
-  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model.",
-  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model.",
-  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model.",
-  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model.",
-  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model.",
-  "review batch: HTTPError 400 invalid_request_error: `temperature` is deprecated for this model."
- ],
- "review": false,
+ "errors": [],
+ "review": true,
  "ubik_key": "holder",
  "forecasts": 85,
  "with_probability": 85,
@@ -17,13 +10,13 @@
  "review_items": 82,
  "review_model": "claude-sonnet-5-5",
  "review_batches": {
-  "ok": 0,
-  "failed": 6
+  "ok": 6,
+  "failed": 0
  },
  "candidates": 334,
  "why_not": {
   "asset: single stock: watched, not traded": 219,
-  "asset: the Claude review did not answer for it": 82,
+  "asset: expected move under #": 82,
   "asset: no price feed for this symbol": 12,
   "asset: rate: not traded yet": 12,
   "contract: edge after costs # points, # expected return": 9
@@ -40,12 +33,12 @@
   "same": 4
  },
  "assets_by_class": {
-  "index": 16,
-  "commodity": 39,
-  "rate": 12,
   "currency": 34,
+  "commodity": 39,
+  "crypto": 5,
   "stock": 219,
-  "crypto": 5
+  "index": 16,
+  "rate": 12
  },
  "passed": 0,
  "open": 0
