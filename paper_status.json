@@ -1,13 +1,13 @@
 {
- "run": "2026-11-16T22:33:11Z",
+ "run": "2026-11-16T22:33:54Z",
  "mode": "trade",
  "errors": [
-  "review batch: HTTPError",
-  "review batch: HTTPError",
-  "review batch: HTTPError",
-  "review batch: HTTPError",
-  "review batch: HTTPError",
-  "review batch: HTTPError"
+  "review batch: HTTPError 400 invalid_request_error",
+  "review batch: HTTPError 400 invalid_request_error",
+  "review batch: HTTPError 400 invalid_request_error",
+  "review batch: HTTPError 400 invalid_request_error",
+  "review batch: HTTPError 400 invalid_request_error",
+  "review batch: HTTPError 400 invalid_request_error"
  ],
  "review": false,
  "ubik_key": "holder",
@@ -22,9 +22,10 @@
  },
  "candidates": 334,
  "why_not": {
-  "asset: single stock: watched, not traded": 231,
+  "asset: single stock: watched, not traded": 219,
   "asset: the Claude review did not answer for it": 82,
   "asset: no price feed for this symbol": 12,
+  "asset: rate: not traded yet": 12,
   "contract: edge after costs # points, # expected return": 9
  },
  "contracts_seen": 9,
@@ -39,12 +40,12 @@
   "same": 4
  },
  "assets_by_class": {
+  "crypto": 5,
+  "commodity": 39,
   "index": 16,
   "stock": 219,
-  "currency": 34,
   "rate": 12,
-  "commodity": 39,
-  "crypto": 5
+  "currency": 34
  },
  "passed": 0,
  "open": 0
