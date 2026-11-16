@@ -41,7 +41,7 @@ CANDIDATES:
 
 
 def _ask(key, payload):
-    body = {"model": MODEL, "max_tokens": 8000, "temperature": 0, "system": SYSTEM,
+    body = {"model": MODEL, "max_tokens": 8000, "system": SYSTEM,
             "messages": [{"role": "user", "content": ASK + json.dumps(payload, ensure_ascii=False)}]}
     req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=json.dumps(body).encode(), method="POST",
                                  headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
