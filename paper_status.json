@@ -1,15 +1,51 @@
 {
- "run": "2026-11-16T22:30:52Z",
+ "run": "2026-11-16T22:33:11Z",
  "mode": "trade",
  "errors": [
-  "review: JSONDecodeError"
+  "review batch: HTTPError",
+  "review batch: HTTPError",
+  "review batch: HTTPError",
+  "review batch: HTTPError",
+  "review batch: HTTPError",
+  "review batch: HTTPError"
  ],
  "review": false,
  "ubik_key": "holder",
  "forecasts": 85,
  "with_probability": 85,
  "marked": 0,
+ "review_items": 82,
+ "review_model": "claude-sonnet-5-5",
+ "review_batches": {
+  "ok": 0,
+  "failed": 6
+ },
  "candidates": 334,
+ "why_not": {
+  "asset: single stock: watched, not traded": 231,
+  "asset: the Claude review did not answer for it": 82,
+  "asset: no price feed for this symbol": 12,
+  "contract: edge after costs # points, # expected return": 9
+ },
+ "contracts_seen": 9,
+ "contracts_positive_edge": 3,
+ "contracts_best_edge_pts": 3.0,
+ "market_relations": {
+  "broader": 5,
+  "overlap": 16,
+  "effect": 9,
+  "driver": 46,
+  "narrower": 6,
+  "same": 4
+ },
+ "assets_by_class": {
+  "index": 16,
+  "stock": 219,
+  "currency": 34,
+  "rate": 12,
+  "commodity": 39,
+  "crypto": 5
+ },
  "passed": 0,
  "open": 0
 }
