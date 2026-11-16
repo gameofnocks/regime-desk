@@ -1,0 +1,53 @@
+name: Paper book
+
+# Every hour: re-price the paper book, settle, stop and take profit. Once a day after 13:00 UTC it also scans UBIK's
+# open forecasts for new trades, with a Claude review. State and output are encrypted (tools/paper_engine.py).
+on:
+  schedule:
+    - cron: "37 * * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "auto (mark every run, trade once a day), mark, or trade (scan now)"
+        default: auto
+        type: choice
+        options: [auto, mark, trade]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install cryptography
+      - name: Check the keys (lengths only)
+        env:
+          UBIK_KEY: ${{ secrets.UBIK_KEY }}
+          PAPER_KEY: ${{ secrets.PAPER_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: echo "lengths UBIK_KEY=${#UBIK_KEY} PAPER_KEY=${#PAPER_KEY} ANTHROPIC_API_KEY=${#ANTHROPIC_API_KEY}"
+      - name: Run the book
+        env:
+          UBIK_KEY: ${{ secrets.UBIK_KEY }}
+          PAPER_KEY: ${{ secrets.PAPER_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODE: ${{ github.event.inputs.mode || 'auto' }}
+        run: python3 tools/paper_engine.py --$MODE
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper_state.enc paper.bin paper_status.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Paper book update"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin main && break; sleep 7; done
