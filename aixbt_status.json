@@ -1,5 +1,5 @@
 {
- "ran_at": "2026-11-17T09:12:23Z",
+ "ran_at": "2026-11-17T21:45:31Z",
  "key_present": true,
  "calls": {
   "aixbt_topics": {
@@ -164,8 +164,10 @@
     "description",
     "id",
     "metrics",
+    "momentumContext",
     "name",
-    "primaryComputedAt",
+    "rank",
+    "rankBand",
     "reinforcedAt",
     "signals",
     "tokens",
@@ -183,14 +185,10 @@
     "apiId",
     "categories",
     "contractAddress",
-    "description",
     "slug",
     "symbol"
    ],
    "metrics_fields": [
-    "athChangePct",
-    "athDate",
-    "athUsd",
     "high24h",
     "lastUpdatedAt",
     "low24h",
@@ -219,6 +217,14 @@
     "referencesMetrics",
     "reinforcedAt",
     "sentiment"
+   ],
+   "momentumContext_fields": [
+    "bestRank14d",
+    "distinctClusters",
+    "leaderboard",
+    "peakRank48h",
+    "rankedSince",
+    "trendTrajectory"
    ]
   },
   "aixbt_base_buzz": {
@@ -319,8 +325,10 @@
     "description",
     "id",
     "metrics",
+    "momentumContext",
     "name",
-    "primaryComputedAt",
+    "rank",
+    "rankBand",
     "reinforcedAt",
     "signals",
     "tokens",
@@ -338,14 +346,10 @@
     "apiId",
     "categories",
     "contractAddress",
-    "description",
     "slug",
     "symbol"
    ],
    "metrics_fields": [
-    "athChangePct",
-    "athDate",
-    "athUsd",
     "high24h",
     "lastUpdatedAt",
     "low24h",
@@ -374,6 +378,14 @@
     "referencesMetrics",
     "reinforcedAt",
     "sentiment"
+   ],
+   "momentumContext_fields": [
+    "bestRank14d",
+    "distinctClusters",
+    "leaderboard",
+    "peakRank48h",
+    "rankedSince",
+    "trendTrajectory"
    ]
   }
  }
