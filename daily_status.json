@@ -1,8 +1,35 @@
 {
- "ran_at": "2026-11-17T17:15:32Z",
- "ok": false,
- "steps": {},
- "errors": [
-  "waiting for desk_private.bin"
- ]
+ "ran_at": "2026-11-17T17:16:10Z",
+ "ok": true,
+ "steps": {
+  "wallets": {
+   "changed": 0,
+   "added": 0,
+   "removed": 0,
+   "manual": 2,
+   "errors": 0
+  },
+  "collector": {
+   "files": 17,
+   "themes": true,
+   "stories": true
+  },
+  "site": {
+   "built": "2026-11-17T17:22:15Z",
+   "files": 19,
+   "snapshots": 10
+  }
+ },
+ "errors": [],
+ "stories": {
+  "model": "claude-opus-5-5",
+  "before": 4,
+  "after": 4,
+  "added": 0,
+  "removed": 0
+ },
+ "brief": {
+  "model": "claude-opus-5-5",
+  "chars": 3148
+ }
 }
