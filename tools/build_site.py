@@ -92,6 +92,28 @@ def topics():
             "meta": {"snapshot": {"completedAt": d.get("completedAt")}}}
 
 
+def build_data(data_dir, key_path, out):
+    """Only the data half: data.bin and build.json. The daily job uses this; the page (app.bin) is left as it is."""
+    key = serialization.load_pem_public_key(open(key_path, "rb").read())
+    files = {}
+    for f in FILES:
+        p = os.path.join(data_dir, f + ".csv")
+        if os.path.exists(p):
+            files[f] = {"csv": open(p).read()}
+    p = os.path.join(data_dir, "outlook.json")
+    if os.path.exists(p):
+        files["outlook"] = {"json": json.load(open(p))}
+    built = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    snap = snapshots()
+    try:
+        snap["aixbt_topics"] = topics()
+    except Exception as e:
+        print("snapshot topics", e)
+    open(os.path.join(out, "data.bin"), "wb").write(seal(key, {"files": files, "snap": snap, "built": built}))
+    json.dump({"built": built}, open(os.path.join(out, "build.json"), "w"))
+    return built, sorted(files), sorted(snap)
+
+
 def main():
     page_path, data_dir, key_path, out = sys.argv[1:5]
     here = os.path.dirname(os.path.abspath(__file__))

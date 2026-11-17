@@ -1,0 +1,52 @@
+name: Daily data
+
+# Once a day: reads the wallets, refreshes the market stories, rebuilds every data file, writes the morning brief and
+# packs it all, encrypted, into data.bin (tools/daily_run.py). Three start times, because GitHub often delays or
+# drops a scheduled start; whichever comes first does the work and the later ones see it is done.
+on:
+  schedule:
+    - cron: "50 6 * * *"
+    - cron: "50 7 * * *"
+    - cron: "50 9 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "tools/daily_run.py"
+      - ".github/workflows/daily.yml"
+      - "desk_private.bin"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install cryptography pandas numpy
+      - name: Run
+        env:
+          PAPER_KEY: ${{ secrets.PAPER_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          UBIK_KEY: ${{ secrets.UBIK_KEY }}
+          FORCE: ${{ github.event_name != 'schedule' && '1' || '' }}
+        run: python3 tools/daily_run.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.bin build.json desk_state.bin daily_status.json data/stories.json tools/desk_pub.txt 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Daily data"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin main && break; git rebase --abort 2>/dev/null; sleep 7; done

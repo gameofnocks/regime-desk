@@ -1,0 +1,268 @@
+[
+ {
+  "basis": "Polymarket core CPI: 0.2% is the base case; the hot side is priced well above the soft side",
+  "bear": "Core 0.3% or more: hike locked in, 2027 hikes start to price, risk-off",
+  "bull": "Core 0.1% or less: December hike odds fall, relief across risk",
+  "date": "2026-11-10",
+  "event": "US CPI, October",
+  "impact": "High",
+  "kind": "Scheduled",
+  "lean": "Hot print firms up a December hike: risk-off. Soft print takes hike odds down: relief.",
+  "market": {
+   "id": "KXFEDDECISION-26DEC-H25",
+   "label": "Fed hikes 25bp in December",
+   "venue": "Kalshi"
+  },
+  "source": "BLS release schedule",
+  "split": {
+   "bear": [
+    "0.3%",
+    "0.4%",
+    "0.5%",
+    "0.6%+"
+   ],
+   "bull": [
+    "≤0.0%",
+    "0.1%"
+   ],
+   "id": "core-cpi-mom-october-2026"
+  },
+  "time_cet": "14:30",
+  "transmission": "Rates > dollar > BTC > alts"
+ },
+ {
+  "basis": "Desk view: matters only if it disagrees with CPI",
+  "bear": "Hot pipeline prices revive hike talk",
+  "bias": "Neutral",
+  "bull": "Soft pipeline prices confirm a cooling CPI",
+  "date": "2026-11-13",
+  "event": "US PPI, October",
+  "impact": "Medium",
+  "kind": "Scheduled",
+  "lean": "Confirms or fades the CPI read.",
+  "priced": "Medium",
+  "priced_basis": "Desk view: consensus sets the bar, and CPI the day before moves it",
+  "source": "BLS release schedule",
+  "time_cet": "14:30",
+  "transmission": "Rates > dollar"
+ },
+ {
+  "basis": "Polymarket prices an EPS beat at about 94%, so the guide decides",
+  "bear": "Soft guide or customer capex cuts: second leg down for the Nasdaq",
+  "bias": "Neutral",
+  "bull": "Guide above the $108B range and capex reaffirmed: Nasdaq and AI tokens bid",
+  "date": "2026-11-17",
+  "event": "Nvidia Q3 FY27 results",
+  "impact": "High",
+  "kind": "Scheduled",
+  "lean": "AI-capex barometer. A miss or soft guide hits Nasdaq and AI tokens together.",
+  "priced": "Medium",
+  "priced_basis": "Desk view: an EPS beat is about 94% priced, the guide is not",
+  "source": "Nvidia investor relations",
+  "time_cet": "23:00",
+  "transmission": "Nasdaq > risk appetite > AI tokens"
+ },
+ {
+  "basis": "Desk view: hawkish tone is already in the December price",
+  "bear": "Several members want hikes into 2027",
+  "bias": "Neutral",
+  "bull": "Minutes frame December as the last hike of the cycle",
+  "date": "2026-11-18",
+  "event": "FOMC minutes, October meeting (expected)",
+  "impact": "Medium",
+  "kind": "Scheduled",
+  "lean": "Read for how many members back a December hike.",
+  "priced": "High",
+  "priced_basis": "Desk view: the hawkish tone is already in the December price",
+  "source": "Fed calendar pattern, three weeks after the meeting",
+  "time_cet": "20:00",
+  "transmission": "Rates > dollar"
+ },
+ {
+  "basis": "Desk view: direction depends on where it closes against the $70 to $78 range",
+  "bear": "Breaks issue price: the AI trade reprices, Nasdaq and alts follow",
+  "bias": "Neutral",
+  "bull": "Closes well above the range: AI names and risk appetite bid",
+  "date": "2026-11-19",
+  "event": "Anthropic IPO, first trade on Nasdaq (19 or 20 Nov)",
+  "impact": "High",
+  "kind": "Scheduled",
+  "lean": "A raise of up to $64B absorbs cash, and the first-day close sets the tone for AI risk.",
+  "priced": "Medium",
+  "priced_basis": "Date and range are known; the first-day close is not",
+  "source": "Yahoo Finance, Wall Street Journal",
+  "time_cet": "",
+  "transmission": "AI equities > Nasdaq > alts"
+ },
+ {
+  "basis": "Desk view: no direction of its own",
+  "bear": "Thin books exaggerate a selloff already under way",
+  "bias": "Neutral",
+  "bull": "Thin books exaggerate a rally already under way",
+  "date": "2026-11-26",
+  "event": "US Thanksgiving, markets closed (half day Friday)",
+  "impact": "Low",
+  "kind": "Scheduled",
+  "lean": "Thin liquidity: moves overshoot both ways.",
+  "priced": "High",
+  "priced_basis": "Known date, no new information",
+  "source": "NYSE holiday calendar",
+  "time_cet": "",
+  "transmission": "Liquidity"
+ },
+ {
+  "basis": "Desk view: pins price into expiry, frees it after",
+  "bear": "Release from pinning lets a slide run",
+  "bias": "Neutral",
+  "bull": "Release from pinning lets a bid run",
+  "date": "2026-11-27",
+  "event": "Deribit monthly options expiry",
+  "impact": "Low",
+  "kind": "Scheduled",
+  "lean": "Pinning into expiry, freer moves after.",
+  "priced": "High",
+  "priced_basis": "Known date and open interest",
+  "source": "Deribit expiry schedule",
+  "time_cet": "09:00",
+  "transmission": "BTC, ETH options"
+ },
+ {
+  "basis": "Polymarket: reopening is a long shot, so the status quo holds",
+  "bear": "Blockade drags on: oil keeps a floor under inflation",
+  "bull": "Traffic normal: oil drops, inflation fear eases",
+  "date": "2026-11-30",
+  "event": "Hormuz traffic back to normal by Nov 30",
+  "impact": "Medium",
+  "kind": "Market",
+  "lean": "Reopening would pull oil down: risk-on.",
+  "market": {
+   "id": "strait-of-hormuz-traffic-returns-to-normal-by-november-30-20260810151158765",
+   "label": "Polymarket",
+   "venue": "Polymarket"
+  },
+  "source": "Polymarket",
+  "split": {
+   "bear": [],
+   "bull": [
+    "YES"
+   ],
+   "id": "strait-of-hormuz-traffic-returns-to-normal-by-november-30-20260810151158765"
+  },
+  "time_cet": "",
+  "transmission": "Oil > inflation > rates"
+ },
+ {
+  "basis": "Desk view: mostly known from CPI and PPI by then",
+  "bear": "Core PCE sticky: case for hikes into 2027",
+  "bias": "Neutral",
+  "bull": "Core PCE cools: room for the Fed to stop after December",
+  "date": "2026-12-02",
+  "event": "US PCE inflation, October",
+  "impact": "High",
+  "kind": "Scheduled",
+  "lean": "The Fed's own gauge, a week before the decision.",
+  "priced": "High",
+  "priced_basis": "Desk view: mostly known from CPI and PPI by then",
+  "source": "BEA schedule",
+  "time_cet": "14:30",
+  "transmission": "Rates > dollar > BTC"
+ },
+ {
+  "basis": "Hike mostly priced; a hold is the bullish surprise, hawkish 2027 dots the bearish one (not priced in any market)",
+  "bear": "Hike with dots pointing to more in 2027",
+  "bias": "Neutral",
+  "bull": "Hold, or a hike with dots that signal the end",
+  "date": "2026-12-09",
+  "event": "FOMC decision, projections and dot plot",
+  "impact": "High",
+  "kind": "Scheduled",
+  "lean": "A hike is mostly priced. The dots for 2027 decide the reaction.",
+  "market": {
+   "id": "KXFEDDECISION-26DEC-H25",
+   "label": "Kalshi: hike 25bp",
+   "venue": "Kalshi"
+  },
+  "source": "Federal Reserve calendar",
+  "split": {
+   "bear": [
+    "50+ bps increase"
+   ],
+   "bull": [
+    "No change",
+    "25 bps decrease",
+    "50+ bps decrease"
+   ],
+   "id": "fed-decision-in-december-20260729232808632"
+  },
+  "time_cet": "20:00",
+  "transmission": "Rates > dollar > everything"
+ },
+ {
+  "basis": "Desk view: no market priced yet",
+  "bear": "Hot inflation the day after the Fed",
+  "bias": "Neutral",
+  "bull": "Cooling inflation confirms a Fed pause",
+  "date": "2026-12-10",
+  "event": "US CPI, November",
+  "impact": "High",
+  "kind": "Scheduled",
+  "lean": "Lands the day after the Fed.",
+  "priced": "Low",
+  "priced_basis": "Desk view: too far out for a consensus to settle",
+  "source": "BLS release schedule",
+  "time_cet": "14:30",
+  "transmission": "Rates > dollar > BTC"
+ },
+ {
+  "basis": "Polymarket: a deal is possible but not expected",
+  "bear": "No deal: energy risk stays",
+  "bull": "Deal: European energy eases, risk-on",
+  "date": "2026-12-31",
+  "event": "Russia and Ukraine ceasefire agreement by year end",
+  "impact": "Medium",
+  "kind": "Market",
+  "lean": "A deal eases energy prices in Europe: risk-on.",
+  "market": {
+   "id": "russia-x-ukraine-ceasefire-agreement-by",
+   "label": "Polymarket",
+   "question": "December 31, 2026",
+   "venue": "Polymarket"
+  },
+  "source": "Polymarket",
+  "split": {
+   "bear": [],
+   "bull": [
+    "YES"
+   ],
+   "id": "russia-x-ukraine-ceasefire-agreement-by",
+   "question": "December 31, 2026"
+  },
+  "time_cet": "",
+  "transmission": "Energy > inflation"
+ },
+ {
+  "basis": "Polymarket: low odds; a jump would be the regime change to watch",
+  "bear": "Recession call: earnings and risk reprice lower",
+  "bull": "Soft landing holds",
+  "date": "2026-12-31",
+  "event": "US recession by end of 2026",
+  "impact": "High",
+  "kind": "Market",
+  "lean": "Low odds. A jump would be the regime change to watch.",
+  "market": {
+   "id": "us-recession-by-end-of-2026",
+   "label": "Polymarket",
+   "venue": "Polymarket"
+  },
+  "source": "Polymarket",
+  "split": {
+   "bear": [
+    "YES"
+   ],
+   "bull": [],
+   "id": "us-recession-by-end-of-2026"
+  },
+  "time_cet": "",
+  "transmission": "Growth > earnings > risk"
+ }
+]
