@@ -1,53 +1,11 @@
 {
- "run": "2026-11-16T23:05:21Z",
- "mode": "trade",
+ "run": "2026-11-17T04:44:15Z",
+ "mode": "mark",
  "errors": [],
- "review": true,
+ "review": null,
  "ubik_key": "holder",
  "forecasts": 85,
  "with_probability": 85,
  "marked": 0,
- "review_items": 82,
- "review_model": "claude-sonnet-5-5",
- "review_batches": {
-  "ok": 6,
-  "failed": 0
- },
- "candidates": 334,
- "why_not": {
-  "asset: single stock: watched, not traded": 219,
-  "asset: expected move under #": 76,
-  "asset: no price feed for this symbol": 12,
-  "asset: rate: not traded yet": 12,
-  "contract: edge after costs # points, # expected return": 9,
-  "asset: reward/risk # needs #": 6
- },
- "assets_expected_pct_top5": [
-  0.92,
-  0.83,
-  0.81,
-  0.74,
-  0.69
- ],
- "contracts_seen": 9,
- "contracts_positive_edge": 3,
- "contracts_best_edge_pts": 3.0,
- "market_relations": {
-  "broader": 5,
-  "overlap": 16,
-  "effect": 9,
-  "driver": 46,
-  "narrower": 6,
-  "same": 4
- },
- "assets_by_class": {
-  "commodity": 39,
-  "currency": 34,
-  "index": 16,
-  "rate": 12,
-  "crypto": 5,
-  "stock": 219
- },
- "passed": 0,
  "open": 0
 }
