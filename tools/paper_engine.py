@@ -431,6 +431,28 @@ def open_positions(s, contracts, assets, status, dry):
         log("open", s["positions"][-1]["label"], round(notional))
 
 
+def shadow_log(s, rows, day):
+    """Keeps every candidate that got as far as a figure, from the first day it was seen, with the prices it was judged
+    at. It trades nothing: it is the record that lets the thresholds be tested later on what actually happened."""
+    sh = s.setdefault("shadow", {})
+    for r in rows:
+        if r["type"] == "contract":
+            k = f"c|{r['forecast']}|{r['venue']}|{r['market']}|{r['side']}"
+            seen = {"day": day, "ubik": r.get("ubik"), "mid": r.get("market_mid"), "ask": r.get("ask"), "fee": r.get("fee"), "fair": r.get("fair"),
+                    "edge": r.get("edge"), "pass": bool(r.get("pass"))}
+        elif r.get("expected_pct") is not None:
+            k = f"a|{r['forecast']}|{r.get('symbol')}"
+            seen = {"day": day, "ubik": r.get("ubik"), "market_prob": r.get("market_prob"), "price": r.get("price"), "yahoo": r.get("yahoo"),
+                    "class": r.get("class"), "dir": r.get("dir"), "expected_pct": r.get("expected_pct"), "best_pct": r.get("best_pct"),
+                    "stop_pct": r.get("stop_pct"), "rr": r.get("rr"), "yes_up": r.get("move_if_yes_pct", 0) >= r.get("move_if_no_pct", 0),
+                    "pass": bool(r.get("pass"))}
+        else:
+            continue
+        e = sh.setdefault(k, {"first": seen, "claim": (r.get("claim") or "")[:160], "deadline": r.get("deadline"), "days": 0})
+        e["last"] = seen; e["days"] += 1
+    return len(sh)
+
+
 def site_files(s, status):
     eq = equity(s)
     closed = s["closed"]
@@ -486,6 +508,11 @@ def main():
                 "symbol", "name", "class", "market_prob", "expected_pct", "best_pct", "stop_pct", "rr", "pass", "why", "review_reason")
         s["scan"] = [{k: r.get(k) for k in keep if r.get(k) is not None} for r in contracts + assets]
         s["scan_at"] = iso()
+        if not dry:
+            try:
+                status["shadow_tracked"] = shadow_log(s, contracts + assets, t.strftime("%Y-%m-%d"))
+            except Exception as e:      # the record is a convenience and must never stop a run
+                status["errors"].append(f"shadow: {type(e).__name__}")
         s["scan_reviewed"] = bool(status["review"])
         if not dry:
             s["traded_on"] = t.strftime("%Y-%m-%d")

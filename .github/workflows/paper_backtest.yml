@@ -1,0 +1,42 @@
+name: Paper book replay
+
+# On request: replays the paper book's asset rules on UBIK's settled forecasts (tools/paper_backtest.py).
+# It never touches the live book. Totals go to paper_backtest.json; every simulated trade is sealed for the site.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "tools/paper_backtest.py"
+      - ".github/workflows/paper_backtest.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-backtest
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install cryptography
+      - name: Replay
+        env:
+          UBIK_KEY: ${{ secrets.UBIK_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 tools/paper_backtest.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add paper_backtest.json paper_backtest.bin 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Paper book replay"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin main && break; sleep 7; done
