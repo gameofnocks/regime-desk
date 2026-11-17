@@ -1,0 +1,246 @@
+{
+ "run": "2026-11-17T16:53:35Z",
+ "selftest": false,
+ "review_model": "claude-sonnet-5-5",
+ "reviewed": true,
+ "settled_forecasts": 37,
+ "first_settled": "2026-10-08",
+ "contract_markets_that_could_be_replayed": 0,
+ "candidates_simulated": 29,
+ "skipped": {
+  "no_price_feed": 0,
+  "price_failed": 22,
+  "no_room": 0
+ },
+ "review_batches": {
+  "ok": 2,
+  "failed": 0
+ },
+ "errors": [],
+ "rules": {
+  "min_expected_pct": 0.5,
+  "min_reward_to_risk": 2.0,
+  "stop_in_daily_ranges": 2.0,
+  "risk_per_trade_pct": 0.75
+ },
+ "groups": {
+  "tradable kinds (commodity, currency, index, crypto)": {
+   "all candidates": {
+    "n": 9,
+    "won": 7,
+    "mean_ret_pct": -0.18,
+    "median_ret_pct": 0.16,
+    "mean_hold_pct": -4.84,
+    "direction_right": 2,
+    "account_pct": -0.12,
+    "forecasts": 7,
+    "exits": {
+     "stop": 1,
+     "target": 7,
+     "UBIK turned against it": 1,
+     "forecast settled": 0
+    }
+   },
+   "pass today's rules": {
+    "n": 0
+   },
+   "by expected move": {
+    "0.5% or more": {
+     "n": 0
+    },
+    "0.25% to 0.5%": {
+     "n": 0
+    },
+    "under 0.25%": {
+     "n": 9,
+     "won": 7,
+     "mean_ret_pct": -0.18,
+     "median_ret_pct": 0.16,
+     "mean_hold_pct": -4.84,
+     "direction_right": 2,
+     "account_pct": -0.12,
+     "forecasts": 7,
+     "exits": {
+      "stop": 1,
+      "target": 7,
+      "UBIK turned against it": 1,
+      "forecast settled": 0
+     }
+    }
+   },
+   "by reward to risk": {
+    "2 or more": {
+     "n": 0
+    },
+    "1 to 2": {
+     "n": 0
+    },
+    "under 1": {
+     "n": 9,
+     "won": 7,
+     "mean_ret_pct": -0.18,
+     "median_ret_pct": 0.16,
+     "mean_hold_pct": -4.84,
+     "direction_right": 2,
+     "account_pct": -0.12,
+     "forecasts": 7,
+     "exits": {
+      "stop": 1,
+      "target": 7,
+      "UBIK turned against it": 1,
+      "forecast settled": 0
+     }
+    }
+   },
+   "looser rule: expected 0.25%+ and reward to risk 1+": {
+    "n": 0
+   },
+   "UBIK leaned the right way against the review's market figure": {
+    "yes": {
+     "n": 5,
+     "won": 4,
+     "mean_ret_pct": 0.16,
+     "median_ret_pct": 0.16,
+     "mean_hold_pct": -0.97,
+     "direction_right": 2,
+     "account_pct": 0.01,
+     "forecasts": 4,
+     "exits": {
+      "stop": 1,
+      "target": 4,
+      "UBIK turned against it": 0,
+      "forecast settled": 0
+     }
+    },
+    "no": {
+     "n": 4,
+     "won": 3,
+     "mean_ret_pct": -0.61,
+     "median_ret_pct": 0.62,
+     "mean_hold_pct": -9.68,
+     "direction_right": 0,
+     "account_pct": -0.13,
+     "forecasts": 3,
+     "exits": {
+      "stop": 0,
+      "target": 3,
+      "UBIK turned against it": 1,
+      "forecast settled": 0
+     }
+    }
+   }
+  },
+  "single stocks (watched only in the live book)": {
+   "all candidates": {
+    "n": 20,
+    "won": 16,
+    "mean_ret_pct": -2.19,
+    "median_ret_pct": 0.61,
+    "mean_hold_pct": -0.87,
+    "direction_right": 11,
+    "account_pct": -1.43,
+    "forecasts": 11,
+    "exits": {
+     "stop": 4,
+     "target": 16,
+     "UBIK turned against it": 0,
+     "forecast settled": 0
+    }
+   },
+   "pass today's rules": {
+    "n": 0
+   },
+   "by expected move": {
+    "0.5% or more": {
+     "n": 0
+    },
+    "0.25% to 0.5%": {
+     "n": 0
+    },
+    "under 0.25%": {
+     "n": 20,
+     "won": 16,
+     "mean_ret_pct": -2.19,
+     "median_ret_pct": 0.61,
+     "mean_hold_pct": -0.87,
+     "direction_right": 11,
+     "account_pct": -1.43,
+     "forecasts": 11,
+     "exits": {
+      "stop": 4,
+      "target": 16,
+      "UBIK turned against it": 0,
+      "forecast settled": 0
+     }
+    }
+   },
+   "by reward to risk": {
+    "2 or more": {
+     "n": 0
+    },
+    "1 to 2": {
+     "n": 0
+    },
+    "under 1": {
+     "n": 20,
+     "won": 16,
+     "mean_ret_pct": -2.19,
+     "median_ret_pct": 0.61,
+     "mean_hold_pct": -0.87,
+     "direction_right": 11,
+     "account_pct": -1.43,
+     "forecasts": 11,
+     "exits": {
+      "stop": 4,
+      "target": 16,
+      "UBIK turned against it": 0,
+      "forecast settled": 0
+     }
+    }
+   },
+   "looser rule: expected 0.25%+ and reward to risk 1+": {
+    "n": 0
+   },
+   "UBIK leaned the right way against the review's market figure": {
+    "yes": {
+     "n": 15,
+     "won": 11,
+     "mean_ret_pct": -3.14,
+     "median_ret_pct": 0.7,
+     "mean_hold_pct": -0.77,
+     "direction_right": 9,
+     "account_pct": -1.87,
+     "forecasts": 7,
+     "exits": {
+      "stop": 4,
+      "target": 11,
+      "UBIK turned against it": 0,
+      "forecast settled": 0
+     }
+    },
+    "no": {
+     "n": 5,
+     "won": 5,
+     "mean_ret_pct": 0.67,
+     "median_ret_pct": 0.53,
+     "mean_hold_pct": -1.16,
+     "direction_right": 2,
+     "account_pct": 0.44,
+     "forecasts": 4,
+     "exits": {
+      "stop": 0,
+      "target": 5,
+      "UBIK turned against it": 0,
+      "forecast settled": 0
+     }
+    }
+   }
+  }
+ },
+ "limits": [
+  "Small sample: UBIK's settled record is a few weeks old, and several candidates share one forecast, so they are not independent.",
+  "The review model may know how events ended; it was told to judge as of the issue date, which cannot be verified.",
+  "Daily bars: a stop and a target inside the same day count as the stop.",
+  "account_pct adds each trade's result at the live position size and ignores the limits on how many positions are open at once."
+ ]
+}
