@@ -1,0 +1,8 @@
+{
+ "ran_at": "2026-11-17T17:15:32Z",
+ "ok": false,
+ "steps": {},
+ "errors": [
+  "waiting for desk_private.bin"
+ ]
+}
