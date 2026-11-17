@@ -46,7 +46,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.bin build.json desk_state.bin daily_status.json data/stories.json tools/desk_pub.txt 2>/dev/null || true
+          for f in data.bin build.json desk_state.bin daily_status.json data/stories.json tools/desk_pub.txt; do [ -e "$f" ] && git add "$f"; done
           git diff --cached --quiet && exit 0
           git commit -m "Daily data"
           for i in 1 2 3; do git pull --rebase origin main && git push origin main && break; git rebase --abort 2>/dev/null; sleep 7; done
