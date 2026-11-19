@@ -4,7 +4,7 @@
   "title": "Anthropic IPO, the largest AI listing",
   "since": "2026-11-10T14:00:00Z",
   "since_label": "Tue 10 Nov, when the price range was set",
-  "status": "The WSJ reported on Tue 17 Nov that Anthropic may price above $80 a share on strong demand, and Bloomberg reports investors were told the price will be at or above the top of the $70 to $78 range. Pricing is expected after the US close tonight, with first trade on Nasdaq as ANT on Thu 19 Nov; the final price and the first-day close are still open.",
+  "status": "CNBC, CNN and NPR report Anthropic priced its IPO at $83 a share on Wed 18 Nov, above the $70 to $78 range, raising $81.3B from an upsized offering of 980 million shares at a fully diluted value of about $1.5T. ANT is due to start trading on Nasdaq today, Thu 19 Nov, after the opening cross; the opening price and the first-day close are still open.",
   "why": "A raise this size absorbs cash that would otherwise chase other risk, and its first-day close reprices every AI name.",
   "asset": "xyz:ANT",
   "asset_label": "Anthropic pre-IPO perp",
@@ -20,16 +20,16 @@
    "pick": "November 19",
    "label": "Lists on 19 Nov"
   },
-  "next_date": "2026-11-18",
-  "next_label": "Pricing tonight, first trade expected 19 Nov",
-  "sources": "Anthropic, Wall Street Journal, Bloomberg, CNBC, Yahoo Finance, TechCrunch"
+  "next_date": "2026-11-19",
+  "next_label": "First trade on Nasdaq as ANT",
+  "sources": "Anthropic, CNBC, CNN, NPR, Reuters, Investing.com, Yahoo Finance"
  },
  {
   "id": "nvda-huang",
   "title": "Huang resigns as Nvidia CEO, Kress named interim",
   "since": "2026-11-06T21:00:00Z",
   "since_label": "Fri 6 Nov close, the last price before the weekend reports",
-  "status": "Nvidia reported Q3 revenue of $115.8B on Tue 17 Nov, above the roughly $108.7B consensus, and chair Harvey Jones said on the call that the board does not intend to reinstate Huang, CNBC and NBC News report. CNBC and Investing.com report the shares rose premarket on Wed 18 Nov and then turned lower, with neoclouds such as CoreWeave falling; the search for a permanent CEO is still open, and Bloomberg reports the board hired Heidrick & Struggles to run it.",
+  "status": "According to CNBC, interim CEO Colette Kress and chair Harvey Jones spoke to staff on Wed 18 Nov, and Kress said annual pay reviews will move from March to December. Motley Fool and Invezz report the shares fell about 2.9% that day despite the Q3 beat; the board has given no timetable for naming a permanent CEO and has said it will not reinstate Huang.",
   "why": "Nvidia is the anchor of the AI trade and one of the heaviest weights in the Nasdaq, which alts follow.",
   "asset": "xyz:NVDA",
   "asset_label": "Nvidia",
@@ -47,14 +47,14 @@
   },
   "next_date": "",
   "next_label": "",
-  "sources": "Nvidia, CNBC, NBC News, Bloomberg, Investing.com, Yahoo Finance"
+  "sources": "Nvidia, CNBC, Bloomberg, Motley Fool, Invezz, Yahoo Finance"
  },
  {
   "id": "iran-gulf",
   "title": "Iran and US trade strikes in the Gulf",
   "since": "2026-11-12T00:00:00Z",
   "since_label": "Thu 12 Nov 00:00 UTC, before Iran reported the Sirik strike",
-  "status": "ABC News and RTE report US strikes on Iran's Qeshm Island on Tue 17 Nov, and Gulf News reports Iranian attacks on Bahrain and Kuwait and on an Emirati tanker, which Saudi Arabia and the GCC condemned. Reuters reports Iran's navy said a fourth tanker caught fire within 24 hours after hitting a mine near Hormuz; the US blockade remains in place, and the indirect talks have produced no ceasefire.",
+  "status": "NBC News and Splash247 report that Iran launched drone attacks on US facilities in Kuwait and Bahrain on Wed 18 Nov, after the US strike on Qeshm Island. UKMTO reported a tanker hit by a projectile off Khasab, Oman, that evening, and Iran's army said three tankers struck mines east of Hormuz. Bloomberg reports one of three US carriers has left the region; the blockade remains and no ceasefire has been reported.",
   "why": "CoinDesk cites the Gulf escalation, with the dollar and Fed hike odds, behind the crypto sell-off; oil feeds straight into rate expectations.",
   "asset": "xyz:BRENTOIL",
   "asset_label": "Brent crude",
@@ -72,14 +72,14 @@
   },
   "next_date": "",
   "next_label": "",
-  "sources": "Reuters, ABC News, RTE, Gulf News, Khaleej Times, CoinDesk"
+  "sources": "NBC News, CBS News, Gulf News, Splash247, Bloomberg, Anadolu, CoinDesk"
  },
  {
   "id": "mstr-msci",
   "title": "MSCI drops Strategy from its indexes",
   "since": "2026-11-11T21:00:00Z",
   "since_label": "Wed 11 Nov close, before MSCI's after-hours announcement",
-  "status": "Bitcoin Magazine reports Strategy fell below $100 on Tue 17 Nov as bitcoin dipped to about $63,300, and Investing.com reports the shares slid toward a $91.20 session low on Wed 18 Nov, with bitcoin near $64,000 against the roughly $75,452 average cost of its 850,849 BTC. The MSCI deletion takes effect after the close on 30 Nov; whether other index providers follow is still open.",
+  "status": "Yahoo Finance data show Strategy closed down 6.4% at $90.32 on Wed 18 Nov, and Benzinga reports bitcoin fell below $63,000 that day. Stocktwits reports Monness Crespi downgraded the stock to Sell, citing bitcoin weakness and share dilution used to fund STRC buybacks. The MSCI deletion takes effect after the close on 30 Nov; whether other index providers follow is still open.",
   "why": "Strategy is the largest corporate BTC holder, and forced selling of its shares tests the main route equity money takes into bitcoin.",
   "asset": "xyz:MSTR",
   "asset_label": "Strategy",
@@ -87,6 +87,6 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-11-30",
   "next_label": "Deletion effective after close",
-  "sources": "MSCI, Strategy, Investing.com, Bitcoin Magazine, Benzinga, 24/7 Wall St."
+  "sources": "MSCI, Strategy, Benzinga, Yahoo Finance, Stocktwits, The Crypto Times"
  }
 ]
