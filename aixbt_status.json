@@ -1,5 +1,5 @@
 {
- "ran_at": "2026-11-18T21:26:31Z",
+ "ran_at": "2026-11-19T08:46:16Z",
  "key_present": true,
  "calls": {
   "aixbt_topics": {
@@ -161,6 +161,7 @@
    "fields": [
     "coingeckoData",
     "createdAt",
+    "description",
     "id",
     "metrics",
     "momentumContext",
@@ -172,7 +173,8 @@
     "tokens",
     "trendScore",
     "trendScoreDelta",
-    "updatedAt"
+    "updatedAt",
+    "xHandle"
    ],
    "tokens_fields": [
     "address",
@@ -180,7 +182,10 @@
     "source"
    ],
    "coingeckoData_fields": [
+    "apiId",
+    "categories",
     "contractAddress",
+    "slug",
     "symbol"
    ],
    "metrics_fields": [
@@ -188,6 +193,7 @@
     "lastUpdatedAt",
     "low24h",
     "priceChange14d",
+    "priceChange30d",
     "priceChange7d",
     "usd",
     "usd24hChange",
@@ -252,6 +258,7 @@
    "tokens_fields": [
     "address",
     "chain",
+    "primary",
     "source"
    ],
    "coingeckoData_fields": [
@@ -289,7 +296,6 @@
     "headline",
     "id",
     "observationCount",
-    "officialSourceUrl",
     "projectId",
     "projectName",
     "referencesMetrics",
@@ -317,6 +323,7 @@
    "fields": [
     "coingeckoData",
     "createdAt",
+    "description",
     "id",
     "metrics",
     "momentumContext",
@@ -328,7 +335,8 @@
     "tokens",
     "trendScore",
     "trendScoreDelta",
-    "updatedAt"
+    "updatedAt",
+    "xHandle"
    ],
    "tokens_fields": [
     "address",
@@ -336,7 +344,10 @@
     "source"
    ],
    "coingeckoData_fields": [
+    "apiId",
+    "categories",
     "contractAddress",
+    "slug",
     "symbol"
    ],
    "metrics_fields": [
@@ -344,6 +355,7 @@
     "lastUpdatedAt",
     "low24h",
     "priceChange14d",
+    "priceChange30d",
     "priceChange7d",
     "usd",
     "usd24hChange",
