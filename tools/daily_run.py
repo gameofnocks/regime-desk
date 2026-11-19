@@ -185,11 +185,21 @@ def write_brief(prev, scan, status):
             "themes": rows("themes.csv"), "book": rows("book.csv"), "projection_summary": rows("projection_summary.csv"), "forward": rows("forward.csv"),
             "calendar_next": cal, "wallet_scan": {k: scan.get(k) for k in ("changed", "added", "removed", "manual")} if scan else None,
             "yesterdays_brief_for_format_only": prev}
-    text, model = claude(BRIEF_RULES, "The data:\n" + json.dumps(data, ensure_ascii=False), max_tokens=3000)
-    out = json_in(text, "[")
-    o = out[0]
-    if not all(isinstance(o.get(k), str) and o.get(k) for k in ("headline", "body", "forward", "next")):
-        raise RuntimeError("brief incomplete")
+    o, why = None, ""
+    for attempt in (1, 2):                                   # the answer is sometimes a bare object, or cut short: read both shapes, ask twice
+        text, model = claude(BRIEF_RULES, "The data:\n" + json.dumps(data, ensure_ascii=False), max_tokens=6000)
+        try:
+            a, b = text.find("{"), text.rfind("}")
+            if a < 0 or b < a:
+                raise ValueError("no object in the answer")
+            cand = json.loads(text[a: b + 1])
+            if not all(isinstance(cand.get(k), str) and cand.get(k) for k in ("headline", "body", "forward", "next")):
+                raise ValueError("brief incomplete")
+            o = cand; break
+        except Exception as e:
+            why = f"{type(e).__name__}: {str(e)[:80]}"; log("brief attempt", attempt, why)
+    if o is None:
+        raise RuntimeError("brief unreadable, " + why)
     o["date"], o["written_at"] = today, data["written_at"]
     status["brief"] = {"model": model, "chars": len(o["body"]) + len(o["forward"])}
     return [o]
