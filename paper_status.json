@@ -1,55 +1,11 @@
 {
- "run": "2026-11-19T13:48:36Z",
- "mode": "trade",
+ "run": "2026-11-19T22:24:21Z",
+ "mode": "mark",
  "errors": [],
- "review": true,
+ "review": null,
  "ubik_key": "holder",
- "forecasts": 80,
- "with_probability": 80,
+ "forecasts": 79,
+ "with_probability": 79,
  "marked": 0,
- "review_items": 77,
- "review_model": "claude-sonnet-5-5",
- "review_batches": {
-  "ok": 7,
-  "failed": 0
- },
- "shadow_tracked": 98,
- "candidates": 307,
- "why_not": {
-  "asset: single stock: watched, not traded": 204,
-  "asset: expected move under #": 71,
-  "asset: rate: not traded yet": 11,
-  "contract: edge after costs # points, # expected return": 8,
-  "asset: no price feed for this symbol": 7,
-  "asset: reward/risk # needs #": 5,
-  "contract: Claude vetoed: The market resolves YES on any Russia-Ukraine": 1
- },
- "assets_expected_pct_top5": [
-  1.35,
-  1.08,
-  0.94,
-  0.65,
-  0.51
- ],
- "contracts_seen": 9,
- "contracts_positive_edge": 3,
- "contracts_best_edge_pts": 7.7,
- "market_relations": {
-  "narrower": 9,
-  "driver": 40,
-  "overlap": 16,
-  "effect": 9,
-  "broader": 7,
-  "same": 2
- },
- "assets_by_class": {
-  "commodity": 32,
-  "index": 13,
-  "crypto": 5,
-  "rate": 11,
-  "currency": 33,
-  "stock": 204
- },
- "passed": 0,
  "open": 0
 }
