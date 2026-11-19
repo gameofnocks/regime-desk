@@ -4,7 +4,7 @@
   "title": "Anthropic IPO, the largest AI listing",
   "since": "2026-11-10T14:00:00Z",
   "since_label": "Tue 10 Nov, when the price range was set",
-  "status": "Anthropic's founders rang the Nasdaq opening bell on Thu 19 Nov, and CryptoTicker reports Nasdaq showed a bid and ask of $104 in the opening auction at 10:10 ET against the $83 IPO price, with no shares traded yet. NBC News cited market makers pointing to an open near $99.60 and Yahoo Finance reports chip stocks led an AI rally into the debut; the first trade and the first-day close were still open at last check.",
+  "status": "CNBC reports Anthropic was indicated to open at $105 against its $83 IPO price, with Hyperliquid perps above $104, and Yahoo Finance reports indications later rose to $110, but no first trade had been reported at last check. Bloomberg reports the Nasdaq 100 rose 2% early on the debut and Stock Titan reports tech gave up most of those gains by late morning; the first-day close is still open.",
   "why": "A raise this size absorbs cash that would otherwise chase other risk, and its first-day close reprices every AI name.",
   "asset": "xyz:ANT",
   "asset_label": "Anthropic pre-IPO perp",
@@ -22,14 +22,14 @@
   },
   "next_date": "2026-11-19",
   "next_label": "First trade and first-day close as ANT",
-  "sources": "Anthropic, NBC News, Yahoo Finance, CryptoTicker, CNBC, CNN, Bloomberg"
+  "sources": "Anthropic, CNBC, Yahoo Finance, Bloomberg, Stock Titan, CNN"
  },
  {
   "id": "nvda-huang",
   "title": "Huang resigns as Nvidia CEO, Kress named interim",
   "since": "2026-11-06T21:00:00Z",
   "since_label": "Fri 6 Nov close, the last price before the weekend reports",
-  "status": "CNBC reports interim CEO Colette Kress told staff at the first all-hands on Wed 18 Nov to move forward, Quartz reports the shares fell 2% that day, and Crypto Briefing reports Microsoft CEO Satya Nadella publicly backed Kress at the DealBook Summit. CNBC reports chair Harvey Jones said the board does not intend to reinstate Huang, and Quartz reports the search will look at internal and external candidates, with no timetable yet for a permanent CEO.",
+  "status": "CNBC reports interim CEO Colette Kress told staff at the first all-hands on Wed 18 Nov to move forward and mentioned pay raises, Invezz reports the shares fell 2.89% to $150.96 that day, and Investrade reports Nvidia rose about 3% early Thu in a chip rebound before the Anthropic debut. NBC News reports chair Harvey Jones said the board does not intend to reinstate Huang and has hired Heidrick & Struggles to look at internal and external candidates, with no timetable yet for a permanent CEO.",
   "why": "Nvidia is the anchor of the AI trade and one of the heaviest weights in the Nasdaq, which alts follow.",
   "asset": "xyz:NVDA",
   "asset_label": "Nvidia",
@@ -47,14 +47,14 @@
   },
   "next_date": "",
   "next_label": "",
-  "sources": "Nvidia, CNBC, Quartz, Reuters, Crypto Briefing, Fox Business"
+  "sources": "Nvidia, CNBC, NBC News, Invezz, Investrade, CNN"
  },
  {
   "id": "iran-gulf",
   "title": "Iran and US trade strikes in the Gulf",
   "since": "2026-11-12T00:00:00Z",
   "since_label": "Thu 12 Nov 00:00 UTC, before Iran reported the Sirik strike",
-  "status": "Iran International and Anadolu report that Iran's Revolutionary Guards said two supertankers hit mines in Hormuz on Thu 19 Nov, a day after Iran's army said three tankers were disabled, and Splash247 reports UKMTO confirmed a tanker was hit by a projectile off Khasab on Wed and Iran launched drones at US facilities in Kuwait and Bahrain after US strikes on Qeshm Island. Bloomberg reports the attacks are intensifying even as oil prices slide on Middle East supply; the US blockade is still in place, and no ceasefire has been reported.",
+  "status": "CBS News, citing Reuters, reports Iran's Revolutionary Guards claimed two more tankers hit mines in Hormuz on Thu 19 Nov, and Gulf News reports JMIC recorded four tanker attacks in 96 hours and the Saudi-led coalition intercepted a Houthi missile. CNN reports a third US carrier group has joined blockade and escort operations, GB News reports Qatar says mediation was continuing, and no ceasefire has been reported.",
   "why": "CoinDesk cites the Gulf escalation, with the dollar and Fed hike odds, behind the crypto sell-off; oil feeds straight into rate expectations.",
   "asset": "xyz:BRENTOIL",
   "asset_label": "Brent crude",
@@ -72,14 +72,14 @@
   },
   "next_date": "",
   "next_label": "",
-  "sources": "Iran International, Anadolu, Splash247, Bloomberg, ABC News, CoinDesk"
+  "sources": "CBS News, Reuters, Gulf News, CNN, GB News, NewsNation, CoinDesk"
  },
  {
   "id": "mstr-msci",
   "title": "MSCI drops Strategy from its indexes",
   "since": "2026-11-11T21:00:00Z",
   "since_label": "Wed 11 Nov close, before MSCI's after-hours announcement",
-  "status": "The Crypto Times reports Strategy shares fell 3.5% to $93.13 as bitcoin traded below $63,000, and Nexo reports bitcoin recovered toward $64,000 on Thu 19 Nov after dipping near $62,000 overnight, with $306M of net outflows from US spot bitcoin ETFs on Wed, citing SoSoValue. The MSCI deletion takes effect after the close on 30 Nov, and it is still open whether other index providers will follow.",
+  "status": "Investing.com reports analysts estimate passive funds must sell about 13 million Strategy shares, roughly $1.6 billion, before the MSCI deletion takes effect after the close on 30 Nov, and Nexo reports bitcoin recovered toward $64,000 on Thu 19 Nov after $306M of net US spot ETF outflows on Wed, citing SoSoValue. Benzinga reports Strategy bought only 485 BTC last week while directing money to STRC buybacks, and it is still open whether other index providers will follow.",
   "why": "Strategy is the largest corporate BTC holder, and forced selling of its shares tests the main route equity money takes into bitcoin.",
   "asset": "xyz:MSTR",
   "asset_label": "Strategy",
@@ -87,6 +87,21 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-11-30",
   "next_label": "Deletion effective after close",
-  "sources": "MSCI, Strategy, Benzinga, Nexo, The Crypto Times, Cryptonomist"
+  "sources": "MSCI, Strategy, Investing.com, Nexo, Benzinga, Cryptonomist"
+ },
+ {
+  "id": "binance-hack",
+  "title": "Binance $6.3B hack, stolen ETH on the move",
+  "since": "2026-10-29T00:00:00Z",
+  "since_label": "Thu 29 Oct 00:00 UTC, before the hack was reported",
+  "status": "CoinDesk, citing Reuters, reports an Abu Dhabi court granted Binance a worldwide order freezing proceeds of the 29 Oct theft, which the FBI attributes to North Korea's TraderTraitor, with a hearing on 1 Dec on whether 18 firms must hand over assets they have frozen. Cointelegraph, citing Lookonchain, reports the hacker moved another 137,600 ETH, about $248M, on Thu 19 Nov, and Binance says it has already replaced customer assets from its own funds.",
+  "why": "Stolen ETH that no issuer can freeze is being moved and swapped, a supply overhang for ETH and alts while crypto sentiment sits at extreme fear.",
+  "asset": "ETH",
+  "asset_label": "Ether",
+  "bench": "xyz:XYZ100",
+  "bench_label": "Nasdaq 100",
+  "next_date": "2026-12-01",
+  "next_label": "Abu Dhabi court hearing on frozen assets",
+  "sources": "Binance, Reuters, CoinDesk, The Block, Bitcoin Magazine, The National"
  }
 ]

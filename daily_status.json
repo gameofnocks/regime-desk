@@ -1,5 +1,5 @@
 {
- "ran_at": "2026-11-19T15:20:49Z",
+ "ran_at": "2026-11-19T16:31:21Z",
  "ok": true,
  "steps": {
   "wallets": {
@@ -15,7 +15,7 @@
    "stories": true
   },
   "site": {
-   "built": "2026-11-19T15:27:17Z",
+   "built": "2026-11-19T16:37:41Z",
    "files": 19,
    "snapshots": 10
   }
@@ -24,12 +24,12 @@
  "stories": {
   "model": "claude-opus-5-5",
   "before": 4,
-  "after": 4,
-  "added": 0,
+  "after": 5,
+  "added": 1,
   "removed": 0
  },
  "brief": {
   "model": "claude-opus-5-5",
-  "chars": 3444
+  "chars": 3404
  }
 }
