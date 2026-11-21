@@ -1,10 +1,35 @@
 [
  {
+  "id": "nvda-huang",
+  "title": "Huang out as Nvidia CEO, SEC probe reported",
+  "since": "2026-11-06T21:00:00Z",
+  "since_label": "Fri 6 Nov close, the last price before the weekend reports",
+  "status": "Kalshi News and The Motley Fool report Nvidia shares fell 12% to 14% on Fri 20 Nov after Reuters reported the SEC is looking into the company's accounting practices, leaving the stock 47% below its 52-week high, and Kalshi News says Trump again called for Huang's return. GeekWire reports board chair Harvey Jones said the board does not intend to reinstate Huang, and the WSJ and Bloomberg report Heidrick & Struggles has approached Arm CEO Rene Haas; no permanent CEO has been named and the scope of the SEC inquiry is still open.",
+  "why": "Nvidia is the anchor of the AI trade and one of the heaviest weights in the Nasdaq, which alts follow.",
+  "asset": "xyz:NVDA",
+  "asset_label": "Nvidia",
+  "bench": "xyz:XYZ100",
+  "bench_label": "Nasdaq 100",
+  "odds": {
+   "slug": "next-ceo-of-nvidia",
+   "pick": "Ian Buck",
+   "label": "Ian Buck named next CEO"
+  },
+  "odds2": {
+   "slug": "new-nvidia-ceo-named-by-december-31-2026",
+   "pick": "",
+   "label": "Permanent CEO named by 31 Dec"
+  },
+  "next_date": "2026-12-01",
+  "next_label": "House committees' closed-door interview with Huang",
+  "sources": "Reuters, Kalshi News, The Motley Fool, GeekWire, WSJ, Bloomberg, CNN, CNBC"
+ },
+ {
   "id": "anthropic-ipo",
   "title": "Anthropic IPO, the largest AI listing",
   "since": "2026-11-10T14:00:00Z",
   "since_label": "Tue 10 Nov, when the price range was set",
-  "status": "Bloomberg and CNN report ANT opened at $111.50 on Thu 19 Nov and closed at $97.17, 17% above the $83 IPO price, with CNN putting the fully diluted value at $1.76T while Yahoo Finance puts it at about $1.27T based on shares outstanding. CNBC reports the stock fell 9% at Friday's open amid a wider AI sell-off, and Bloomberg reports the Nasdaq 100 closed down 2.2% on debut day; where the stock settles after the first-day pop is still open.",
+  "status": "Yahoo Finance and Seeking Alpha report ANT closed Fri 20 Nov at $88.91, down 8.5% from its $97.17 debut close, after trading as low as $83.05, just above the $83 IPO price, and Yahoo puts the market value at about $1.19T. BitcoinWorld says the post-IPO slide added to pressure on crypto; whether the stock holds its IPO price when trading resumes on Monday is still open.",
   "why": "A raise this size absorbs cash that would otherwise chase other risk, and its first-day close reprices every AI name.",
   "asset": "xyz:ANT",
   "asset_label": "Anthropic pre-IPO perp",
@@ -22,39 +47,14 @@
   },
   "next_date": "",
   "next_label": "",
-  "sources": "Bloomberg, CNN, CNBC, Yahoo Finance, Reuters, Forbes"
- },
- {
-  "id": "nvda-huang",
-  "title": "Huang resigns as Nvidia CEO, Kress named interim",
-  "since": "2026-11-06T21:00:00Z",
-  "since_label": "Fri 6 Nov close, the last price before the weekend reports",
-  "status": "The Guardian, citing Bloomberg, reports the board's recruiter Heidrick & Struggles has approached Arm CEO Rene Haas, with Ian Buck, Lisa Su and Johny Srouji also named as possible candidates, and reports Nvidia has tried to curb talk of a Huang return after he said he would be willing to come back. Yahoo Finance reports the shares fell about 3% on Fri 20 Nov and are down 14% since the resignation, and no permanent CEO has been named.",
-  "why": "Nvidia is the anchor of the AI trade and one of the heaviest weights in the Nasdaq, which alts follow.",
-  "asset": "xyz:NVDA",
-  "asset_label": "Nvidia",
-  "bench": "xyz:XYZ100",
-  "bench_label": "Nasdaq 100",
-  "odds": {
-   "slug": "next-ceo-of-nvidia",
-   "pick": "Ian Buck",
-   "label": "Ian Buck named next CEO"
-  },
-  "odds2": {
-   "slug": "new-nvidia-ceo-named-by-december-31-2026",
-   "pick": "",
-   "label": "Permanent CEO named by 31 Dec"
-  },
-  "next_date": "",
-  "next_label": "",
-  "sources": "Nvidia, Bloomberg, The Guardian, Yahoo Finance, CNBC, Reuters"
+  "sources": "Yahoo Finance, Seeking Alpha, Morningstar, CNN, CNBC, Bloomberg, BitcoinWorld"
  },
  {
   "id": "iran-gulf",
   "title": "Iran and US trade strikes in the Gulf",
   "since": "2026-11-12T00:00:00Z",
   "since_label": "Thu 12 Nov 00:00 UTC, before Iran reported the Sirik strike",
-  "status": "CBS News, citing Reuters, reports Iran's Revolutionary Guards claimed two more tankers hit mines in Hormuz on Thu 19 Nov, and Bloomberg reports CENTCOM widened the blockade on Wed to cover ship-to-ship transfers after the first observed transfer of Iranian crude near Kharg. Iran International and Al Jazeera report Guards-linked media are urging Iran to send a tanker convoy through the blockade and threatening Gulf oil sites if the tankers are attacked; Iran has not confirmed a plan, and no ceasefire has been reported.",
+  "status": "Arab Times reports Iran's deputy parliament speaker said on Sat 21 Nov that oil tankers are already moving to break the US blockade and that a lawmaker put the number preparing at 14, and Maritime Executive quotes Foreign Minister Araghchi saying the blockade must be broken. AGBI, citing Windward, reports no Iran-linked tankers were seen heading for Hormuz as of 19 Nov, and ABC News reports attacks in the strait are at their highest level of the war; no convoy sailing and no ceasefire has been confirmed.",
   "why": "CoinDesk cites the Gulf escalation, with the dollar and Fed hike odds, behind the crypto sell-off; oil feeds straight into rate expectations.",
   "asset": "xyz:BRENTOIL",
   "asset_label": "Brent crude",
@@ -72,14 +72,14 @@
   },
   "next_date": "",
   "next_label": "",
-  "sources": "CBS News, Reuters, Bloomberg, Al Jazeera, Iran International, CoinDesk"
+  "sources": "Arab Times, Maritime Executive, AGBI, ABC News, Al Jazeera, Iran International, RFE/RL, CoinDesk"
  },
  {
   "id": "mstr-msci",
   "title": "MSCI drops Strategy from its indexes",
   "since": "2026-11-11T21:00:00Z",
   "since_label": "Wed 11 Nov close, before MSCI's after-hours announcement",
-  "status": "Bitcoin Magazine reports Strategy fell 4.6% to $86.13 on Thu 19 Nov, a sixth straight loss, as bitcoin touched $61,658, and CoinGlass data show $582M of net US spot ETF outflows that day. Investing.com puts the passive selling due before the deletion after the close on 30 Nov at about $1.6B and BitcoinWorld puts it at $2B to $3B; whether other index providers will follow is still open.",
+  "status": "Crypto Times reports Strategy fell 8.5% as bitcoin slid below $59,000, with about $541M pulled from BlackRock's IBIT in a single day, and CoinGlass data show bitcoin touched about $55,127 on Sat 21 Nov, which Crypto Times calls its lowest level in more than two years. MSCI's deletion takes effect after the close on 30 Nov, with BitcoinWorld estimating $2B to $3B of passive selling; whether other index providers follow is still open.",
   "why": "Strategy is the largest corporate BTC holder, and forced selling of its shares tests the main route equity money takes into bitcoin.",
   "asset": "xyz:MSTR",
   "asset_label": "Strategy",
@@ -87,14 +87,14 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-11-30",
   "next_label": "Deletion effective after close",
-  "sources": "MSCI, Strategy, Bitcoin Magazine, Investing.com, CoinGlass, Benzinga, The Block"
+  "sources": "MSCI, Strategy, Crypto Times, CoinGlass, BitcoinWorld, Bitcoin Magazine, CoinDesk, Decrypt"
  },
  {
   "id": "binance-hack",
   "title": "Binance $6.3B hack, stolen ETH on the move",
   "since": "2026-10-29T00:00:00Z",
   "since_label": "Thu 29 Oct 00:00 UTC, before the hack was reported",
-  "status": "Cointelegraph, citing Onchain Lens, reports the hacker moved another 197,460 ETH, about $346M, on Fri 20 Nov after 137,602 ETH on Thu, routing part of it through THORChain and Chainflip, and says Arkham data show about 225,000 ETH left in the tracked addresses. Binance says it has reimbursed customers and is pursuing a worldwide freezing order in Abu Dhabi, where a hearing on 1 Dec will decide whether 18 firms must hand over assets they have frozen.",
+  "status": "Elliptic reports the hackers moved about 488,000 ETH, worth about $860M, out of their largest wallets from 17 to 20 Nov and have swapped about 39,000 ETH into roughly 1,100 BTC through THORChain, and Cointelegraph, citing Arkham, says about 224,700 ETH remain in the tracked addresses. Binance says it has replenished affected assets and about 44% of the stolen funds have been frozen or seized; an Abu Dhabi hearing on 1 Dec will decide whether 18 firms must hand over the assets they have frozen.",
   "why": "Stolen ETH that no issuer can freeze is being moved and swapped, a supply overhang for ETH and alts while crypto sentiment sits at extreme fear.",
   "asset": "ETH",
   "asset_label": "Ether",
@@ -102,6 +102,6 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-12-01",
   "next_label": "Abu Dhabi court hearing on frozen assets",
-  "sources": "Binance, Reuters, CoinDesk, Cointelegraph, Crypto Times, The Block"
+  "sources": "Binance, Elliptic, Cointelegraph, Reuters, Crypto Times, CoinDesk"
  }
 ]
