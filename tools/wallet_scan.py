@@ -12,8 +12,10 @@ Rules
   A token found in the wallets takes the wallets' total and is marked source "wallets".
   A token not found in any wallet keeps its hand-entered amount (source "manual"): it may sit in a wallet that is not listed.
   A token that was read from the wallets before and is now gone is dropped from the book.
-  A new Solana token worth at least MIN_NEW_USD is added. New tokens on other chains are not discovered: no free
-    source lists every token in a wallet there, so those are added by hand once and tracked from then on.
+  A new Solana token worth at least MIN_NEW_USD is added. On the other chains no free source lists every token in
+    a wallet, so there the scan checks the tokens on the book plus the WATCH list below on every run. A token on
+    that list comes back onto the book by itself when it is in a wallet again and worth at least MIN_NEW_USD.
+    A token that is on neither is added by hand once, and to WATCH, and is tracked from then on.
   If a chain cannot be read, its tokens are left exactly as they were.
 """
 import csv, json, os, sys, time, urllib.error, urllib.request
@@ -23,6 +25,14 @@ RPC = {"base": "https://mainnet.base.org", "robinhood": "https://rpc.mainnet.cha
 SOL_PROGRAMS = ["TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"]
 CHAIN_NAME = {"robinhood": "Robinhood Chain", "base": "Base", "solana": "Solana", "ethereum": "Ethereum"}
 MIN_NEW_USD = 250
+# Tokens the owner has held before. Checked in every wallet on every run, whether or not they are on the book.
+WATCH = [
+    {"symbol": "UBIK", "name": "ubik", "cg_id": "ubik", "chain": "robinhood", "address": "0x812486EAea648819853F8E372dc9f1516C7868Bd"},
+    {"symbol": "NOCK", "name": "Nockchain (wrapped)", "cg_id": "nockchain", "chain": "base", "address": "0x9B5E262cF9bb04869ab40b19AF91D2dc85761722"},
+    {"symbol": "PRIORS", "name": "Priors Agents", "cg_id": "priors-agent", "chain": "robinhood", "address": "0xeDBf91223639800BCd5756815CAf908Df3b890bE"},
+    {"symbol": "USDC", "name": "USD Coin", "cg_id": "usd-coin", "chain": "base", "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"},
+    {"symbol": "USDC", "name": "USD Coin", "cg_id": "usd-coin", "chain": "ethereum", "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"},
+]
 UA = {"User-Agent": "Mozilla/5.0 (regime-desk)", "Content-Type": "application/json"}
 
 
@@ -78,6 +88,15 @@ def dex(mints):
     return best
 
 
+def evm_price(chain, token):
+    """Price of a token on one chain from Dexscreener (deepest pool), or None when it has no pool there."""
+    url = "https://api.dexscreener.com/latest/dex/tokens/" + token
+    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+        ps = [p for p in json.loads(r.read()).get("pairs") or [] if p.get("chainId") == chain and p.get("priceUsd")
+              and p["baseToken"]["address"].lower() == token.lower()]
+    return float(max(ps, key=lambda p: (p.get("liquidity") or {}).get("usd") or 0)["priceUsd"]) if ps else None
+
+
 def main(holdings_path, wallets_path, out):
     book = json.load(open(holdings_path)); wallets = json.load(open(wallets_path))
     evm, sol = wallets.get("evm") or [], wallets.get("solana") or []
@@ -127,6 +146,28 @@ def main(holdings_path, wallets_path, out):
                     sym = sym + "-SOL"
                 new_book.append({"address": m, "chain": "solana", "name": name, "symbol": sym, "units": round(sol_bal[m], 6), "source": "wallets"})
                 rep["added"].append({"symbol": sym, "units": round(sol_bal[m], 6), "value_usd": round(sol_bal[m] * price)})
+    if evm:                                                  # tokens held before: back on the book when a wallet holds them again
+        on_book = {(h["chain"], h["address"].lower()) for h in book}
+        for t in WATCH:
+            if (t["chain"], t["address"].lower()) in on_book:
+                continue
+            try:
+                found = evm_balance(t["chain"], t["address"], evm)
+                if not found:
+                    continue
+                try:
+                    price = evm_price(t["chain"], t["address"])
+                except Exception:
+                    price = None
+                if price is not None and found * price < MIN_NEW_USD:
+                    continue
+                units = round(found, 6); sym = t["symbol"]
+                if any(h["symbol"] == sym for h in new_book):
+                    sym = sym + "-" + t["chain"][:4].upper()
+                new_book.append(dict(t, symbol=sym, units=int(units) if units == int(units) else units, source="wallets"))
+                rep["added"].append({"symbol": sym, "units": units, "value_usd": round(found * price) if price is not None else None})
+            except Exception as e:
+                rep["errors"].append(f"watch {t['symbol']}: {str(e)[:100]}")
     os.makedirs(out, exist_ok=True)
     json.dump(new_book, open(os.path.join(out, "holdings.json"), "w"), indent=1)
     with open(os.path.join(out, "holdings.csv"), "w", newline="") as f:
