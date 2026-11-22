@@ -4,7 +4,7 @@
   "title": "Huang out as Nvidia CEO, SEC probe reported",
   "since": "2026-11-06T21:00:00Z",
   "since_label": "Fri 6 Nov close, the last price before the weekend reports",
-  "status": "Kalshi News and The Motley Fool report Nvidia shares fell 12% to 14% on Fri 20 Nov after Reuters reported the SEC is looking into the company's accounting practices, leaving the stock 47% below its 52-week high, and Kalshi News says Trump again called for Huang's return. GeekWire reports board chair Harvey Jones said the board does not intend to reinstate Huang, and the WSJ and Bloomberg report Heidrick & Struggles has approached Arm CEO Rene Haas; no permanent CEO has been named and the scope of the SEC inquiry is still open.",
+  "status": "Reuters reports SEC enforcement staff are examining Nvidia's accounting, and Yahoo Finance says the stock fell 14% on Fri 20 Nov, its seventh straight loss, before bouncing nearly 4% after hours. Business Recorder and Malay Mail report chair Harvey Jones has ruled out Huang's return even though Trump called for it, and the WSJ says Heidrick & Struggles is running the CEO search; no permanent CEO has been named, and the probe's focus and the delayed 10-Q are still open.",
   "why": "Nvidia is the anchor of the AI trade and one of the heaviest weights in the Nasdaq, which alts follow.",
   "asset": "xyz:NVDA",
   "asset_label": "Nvidia",
@@ -22,39 +22,14 @@
   },
   "next_date": "2026-12-01",
   "next_label": "House committees' closed-door interview with Huang",
-  "sources": "Reuters, Kalshi News, The Motley Fool, GeekWire, WSJ, Bloomberg, CNN, CNBC"
- },
- {
-  "id": "anthropic-ipo",
-  "title": "Anthropic IPO, the largest AI listing",
-  "since": "2026-11-10T14:00:00Z",
-  "since_label": "Tue 10 Nov, when the price range was set",
-  "status": "Yahoo Finance and Seeking Alpha report ANT closed Fri 20 Nov at $88.91, down 8.5% from its $97.17 debut close, after trading as low as $83.05, just above the $83 IPO price, and Yahoo puts the market value at about $1.19T. BitcoinWorld says the post-IPO slide added to pressure on crypto; whether the stock holds its IPO price when trading resumes on Monday is still open.",
-  "why": "A raise this size absorbs cash that would otherwise chase other risk, and its first-day close reprices every AI name.",
-  "asset": "xyz:ANT",
-  "asset_label": "Anthropic pre-IPO perp",
-  "bench": "xyz:XYZ100",
-  "bench_label": "Nasdaq 100",
-  "odds": {
-   "slug": "anthropic-ipo-closing-market-cap-higher-strikes",
-   "pick": "<$1.25T",
-   "label": "First-day close below $1.25T"
-  },
-  "odds2": {
-   "slug": "anthropic-ipo-date",
-   "pick": "November 19",
-   "label": "Lists on 19 Nov"
-  },
-  "next_date": "",
-  "next_label": "",
-  "sources": "Yahoo Finance, Seeking Alpha, Morningstar, CNN, CNBC, Bloomberg, BitcoinWorld"
+  "sources": "Reuters, WSJ, Yahoo Finance, Business Recorder, Malay Mail, Quartz, Seeking Alpha, CNBC"
  },
  {
   "id": "iran-gulf",
   "title": "Iran and US trade strikes in the Gulf",
   "since": "2026-11-12T00:00:00Z",
   "since_label": "Thu 12 Nov 00:00 UTC, before Iran reported the Sirik strike",
-  "status": "Arab Times reports Iran's deputy parliament speaker said on Sat 21 Nov that oil tankers are already moving to break the US blockade and that a lawmaker put the number preparing at 14, and Maritime Executive quotes Foreign Minister Araghchi saying the blockade must be broken. AGBI, citing Windward, reports no Iran-linked tankers were seen heading for Hormuz as of 19 Nov, and ABC News reports attacks in the strait are at their highest level of the war; no convoy sailing and no ceasefire has been confirmed.",
+  "status": "The Times of Israel and Al Jazeera report three tankers were damaged in or near Hormuz on Sat 21 Nov while Iran held talks with a Qatari delegation, and Iran International reports Deputy Foreign Minister Gharibabadi called the US blockade an act of war. VINnews, citing Euronews, reports more than 14 tankers gathered near Kharg Island, but Windward found no organized convoy heading for the blockade line as of 20 Nov; no convoy has sailed and no ceasefire has been confirmed.",
   "why": "CoinDesk cites the Gulf escalation, with the dollar and Fed hike odds, behind the crypto sell-off; oil feeds straight into rate expectations.",
   "asset": "xyz:BRENTOIL",
   "asset_label": "Brent crude",
@@ -72,14 +47,14 @@
   },
   "next_date": "",
   "next_label": "",
-  "sources": "Arab Times, Maritime Executive, AGBI, ABC News, Al Jazeera, Iran International, RFE/RL, CoinDesk"
+  "sources": "Times of Israel, Al Jazeera, Iran International, Euronews, Windward, VINnews, Ynet, CoinDesk"
  },
  {
   "id": "mstr-msci",
   "title": "MSCI drops Strategy from its indexes",
   "since": "2026-11-11T21:00:00Z",
   "since_label": "Wed 11 Nov close, before MSCI's after-hours announcement",
-  "status": "Crypto Times reports Strategy fell 8.5% as bitcoin slid below $59,000, with about $541M pulled from BlackRock's IBIT in a single day, and CoinGlass data show bitcoin touched about $55,127 on Sat 21 Nov, which Crypto Times calls its lowest level in more than two years. MSCI's deletion takes effect after the close on 30 Nov, with BitcoinWorld estimating $2B to $3B of passive selling; whether other index providers follow is still open.",
+  "status": "Share Talk and Bitcoin News Digest report bitcoin fell to about $55,100 early Sat 21 Nov, its lowest since September 2024, before recovering to about $60,000 by Sunday per Coinbase data, and Cryptoticker says Strategy's 850,849 BTC sit roughly 23% below their average cost. MSCI's deletion takes effect after the close on 30 Nov, and Strategy estimates index trackers hold about 13 million shares, 3.1% of its stock; whether other index providers follow is still open.",
   "why": "Strategy is the largest corporate BTC holder, and forced selling of its shares tests the main route equity money takes into bitcoin.",
   "asset": "xyz:MSTR",
   "asset_label": "Strategy",
@@ -87,14 +62,14 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-11-30",
   "next_label": "Deletion effective after close",
-  "sources": "MSCI, Strategy, Crypto Times, CoinGlass, BitcoinWorld, Bitcoin Magazine, CoinDesk, Decrypt"
+  "sources": "MSCI, Strategy, Coinbase, Share Talk, Bitcoin News Digest, Cryptoticker, Decrypt, Yahoo Finance"
  },
  {
   "id": "binance-hack",
   "title": "Binance $6.3B hack, stolen ETH on the move",
   "since": "2026-10-29T00:00:00Z",
   "since_label": "Thu 29 Oct 00:00 UTC, before the hack was reported",
-  "status": "Elliptic reports the hackers moved about 488,000 ETH, worth about $860M, out of their largest wallets from 17 to 20 Nov and have swapped about 39,000 ETH into roughly 1,100 BTC through THORChain, and Cointelegraph, citing Arkham, says about 224,700 ETH remain in the tracked addresses. Binance says it has replenished affected assets and about 44% of the stolen funds have been frozen or seized; an Abu Dhabi hearing on 1 Dec will decide whether 18 firms must hand over the assets they have frozen.",
+  "status": "Bitcoin.com News, citing Elliptic, reports the hackers moved about 488,000 ETH, worth about $860M, from 17 to 20 Nov into wallets of about 12,000 ETH each, and swapped about 39,000 ETH into roughly 1,100 BTC, mostly through THORChain. Cryptonews, citing Arkham, says about 224,700 ETH remain in the tracked addresses, and CoinDesk cites Elliptic's estimate that about $2.85B has been frozen or seized; an Abu Dhabi hearing on 1 Dec will decide whether 18 firms must hand over the assets they have frozen.",
   "why": "Stolen ETH that no issuer can freeze is being moved and swapped, a supply overhang for ETH and alts while crypto sentiment sits at extreme fear.",
   "asset": "ETH",
   "asset_label": "Ether",
@@ -102,6 +77,31 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-12-01",
   "next_label": "Abu Dhabi court hearing on frozen assets",
-  "sources": "Binance, Elliptic, Cointelegraph, Reuters, Crypto Times, CoinDesk"
+  "sources": "Elliptic, Bitcoin.com News, Cryptonews, Arkham, CoinDesk, Decrypt, Binance, Reuters"
+ },
+ {
+  "id": "anthropic-ipo",
+  "title": "Anthropic IPO, the largest AI listing",
+  "since": "2026-11-10T14:00:00Z",
+  "since_label": "Tue 10 Nov, when the price range was set",
+  "status": "Seeking Alpha and CNBC data show ANT closed Fri 20 Nov at $88.91, down 8.5% from its $97.17 debut close, after touching $83.05, just above the $83 IPO price, and Yahoo Finance reports Nasdaq's president said the stock is on course for a fast-track entry into the Nasdaq 100. Bitcoin News Digest says bitcoin's weekly slide picked up after the debut failed to lift shares; whether ANT holds its IPO price when trading resumes Monday and the timing of index entry are still open.",
+  "why": "A raise this size absorbs cash that would otherwise chase other risk, and its first-day close reprices every AI name.",
+  "asset": "xyz:ANT",
+  "asset_label": "Anthropic pre-IPO perp",
+  "bench": "xyz:XYZ100",
+  "bench_label": "Nasdaq 100",
+  "odds": {
+   "slug": "anthropic-ipo-closing-market-cap-higher-strikes",
+   "pick": "<$1.25T",
+   "label": "First-day close below $1.25T"
+  },
+  "odds2": {
+   "slug": "anthropic-ipo-date",
+   "pick": "November 19",
+   "label": "Lists on 19 Nov"
+  },
+  "next_date": "",
+  "next_label": "",
+  "sources": "Seeking Alpha, CNBC, Yahoo Finance, CNN, Bitcoin News Digest, Investing.com"
  }
 ]
