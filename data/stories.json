@@ -1,35 +1,25 @@
 [
  {
   "id": "nvda-huang",
-  "title": "Huang out as Nvidia CEO, SEC probe reported",
+  "title": "Huang reinstated as Nvidia CEO, probes continue",
   "since": "2026-11-06T21:00:00Z",
   "since_label": "Fri 6 Nov close, the last price before the weekend reports",
-  "status": "AFP, citing the New York Times, reports the SEC inquiry into Nvidia's accounting is at an early stage and its focus is unclear, and says chair Harvey Jones has ruled out Huang's return although Trump called on Fri 20 Nov for him to be reinstated. Colette Kress is interim CEO and no permanent CEO has been named; Huang faces closed-door House interviews on 1 Dec, and Reuters reports he has also agreed to a public Senate Banking hearing that has no date yet.",
+  "status": "Nvidia said on Mon 23 Nov that its board unanimously reinstated Huang as CEO with immediate effect after input from senior US government officials, with Kress returning to CFO; NPR reports the shares jumped, and MS NOW reports Trump said he had spoken with board members about the decision. The board says its independent probe into the reported foreign intelligence effort will continue, the reported SEC inquiry is still open, and Huang faces closed-door House interviews on 1 Dec and a Senate Banking hearing on export controls on 3 Dec, Investing.com reports.",
   "why": "Nvidia is the anchor of the AI trade and one of the heaviest weights in the Nasdaq, which alts follow.",
   "asset": "xyz:NVDA",
   "asset_label": "Nvidia",
   "bench": "xyz:XYZ100",
   "bench_label": "Nasdaq 100",
-  "odds": {
-   "slug": "next-ceo-of-nvidia",
-   "pick": "Ian Buck",
-   "label": "Ian Buck named next CEO"
-  },
-  "odds2": {
-   "slug": "new-nvidia-ceo-named-by-december-31-2026",
-   "pick": "",
-   "label": "Permanent CEO named by 31 Dec"
-  },
   "next_date": "2026-12-01",
-  "next_label": "House committees' closed-door interview with Huang",
-  "sources": "Reuters, New York Times, AFP, WSJ, New Straits Times, Yahoo Finance, CBS News, TechCrunch"
+  "next_label": "House committees' closed-door interview with Huang, Senate hearing 3 Dec",
+  "sources": "Nvidia, NPR, Fox Business, Al Jazeera, PBS, MS NOW, Investing.com, CoinDesk"
  },
  {
   "id": "iran-gulf",
   "title": "Iran and US trade strikes in the Gulf",
   "since": "2026-11-12T00:00:00Z",
   "since_label": "Thu 12 Nov 00:00 UTC, before Iran reported the Sirik strike",
-  "status": "AFP reports two tankers were struck in Hormuz on Sat 21 Nov and that Bahrain accused Iran of hitting an industrial site; Euronews counts at least three tankers attacked and reports more than 14 Iranian tankers readied off Kharg Island to run the US blockade. Iran held talks with a Qatari delegation, but Foreign Minister Araghchi said talks on Hormuz are pointless until Iran's demands are met, and no convoy has sailed and no ceasefire has been confirmed.",
+  "status": "UKMTO reported a tanker incident involving military forces near the US blockade line in the Gulf of Oman on Sun 22 Nov; Gulf News cites an analyst who says the US struck a tanker carrying Iranian oil, but neither side has confirmed this and AFP says CENTCOM had not commented as of Monday. Iran's foreign ministry said on Mon 23 Nov it will use every means to counter the blockade after Trump threatened to sink any tankers that try to breach it, and CBS reports talks with Qatari mediators are ongoing; no convoy has been confirmed sailing and no ceasefire has been announced.",
   "why": "CoinDesk cites the Gulf escalation, with the dollar and Fed hike odds, behind the crypto sell-off; oil feeds straight into rate expectations.",
   "asset": "xyz:BRENTOIL",
   "asset_label": "Brent crude",
@@ -47,14 +37,14 @@
   },
   "next_date": "",
   "next_label": "",
-  "sources": "AFP, Business Recorder, Euronews, Iran International, Al Jazeera, Ynet, Gulf News, CoinDesk"
+  "sources": "AFP, UKMTO, Euronews, Gulf News, CBS News, Fox News, Al Jazeera, CoinDesk"
  },
  {
   "id": "mstr-msci",
   "title": "MSCI drops Strategy from its indexes",
   "since": "2026-11-11T21:00:00Z",
   "since_label": "Wed 11 Nov close, before MSCI's after-hours announcement",
-  "status": "CoinGlass data show bitcoin near $60,700 on Sun 22 Nov, after Altcoin Buzz says it touched about $55,100 on Sat, its lowest since September 2024. Bitcoin.com News says Strategy's 850,849 BTC sit about $12.6B below their $75,452 average cost and that Saylor has hinted at another purchase; MSCI's deletion takes effect after the close on 30 Nov, and whether other index providers follow is still open.",
+  "status": "CoinGlass data show bitcoin near $63,400 late Mon 23 Nov, after KuCoin's daily report says it touched about $55,100 over the weekend; Crypto.news reports Saylor said Strategy's latest proceeds went $147M to STRC buybacks and only $29.6M to bitcoin. MSCI's deletion takes effect after the close on 30 Nov, and Yahoo Finance cites a JPMorgan estimate of up to $9B in outflows if other index providers follow, which is still open.",
   "why": "Strategy is the largest corporate BTC holder, and forced selling of its shares tests the main route equity money takes into bitcoin.",
   "asset": "xyz:MSTR",
   "asset_label": "Strategy",
@@ -62,14 +52,29 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-11-30",
   "next_label": "Deletion effective after close",
-  "sources": "MSCI, Strategy, CoinGlass, Bitcoin.com News, Crypto.news, Altcoin Buzz, Investing.com, Coinspeaker"
+  "sources": "MSCI, Strategy, CoinGlass, KuCoin, Crypto.news, Yahoo Finance, Decrypt, FXStreet"
+ },
+ {
+  "id": "anthropic-ipo",
+  "title": "Anthropic IPO, the largest AI listing",
+  "since": "2026-11-10T14:00:00Z",
+  "since_label": "Tue 10 Nov, when the price range was set",
+  "status": "Yahoo Finance reports ANT rose more than 4% premarket on Mon 23 Nov after Friday's 8.5% drop to $88.91, but its quote shows the stock back near $88.85 by early afternoon after trading between $84.81 and $94.24. StockAnalysis lists a 2x leveraged ANT ETF from Leverage Shares launching Monday; whether ANT holds its $83 IPO price and when it joins the Nasdaq 100 are still open.",
+  "why": "A raise this size absorbs cash that would otherwise chase other risk, and its first-day close reprices every AI name.",
+  "asset": "xyz:ANT",
+  "asset_label": "Anthropic pre-IPO perp",
+  "bench": "xyz:XYZ100",
+  "bench_label": "Nasdaq 100",
+  "next_date": "",
+  "next_label": "",
+  "sources": "Yahoo Finance, CNBC, Seeking Alpha, StockAnalysis, Investing.com, WSJ, Robinhood"
  },
  {
   "id": "binance-hack",
   "title": "Binance $6.3B hack, stolen ETH on the move",
   "since": "2026-10-29T00:00:00Z",
   "since_label": "Thu 29 Oct 00:00 UTC, before the hack was reported",
-  "status": "Elliptic's 20 Nov update, covered by Bitcoin.com News and The Cryptonomist, says the hackers emptied five of the nine largest ETH addresses from 17 to 20 Nov, moving about 488,000 ETH ($860M) into batches of about 12,000 ETH and swapping some into bitcoin through THORChain, while the 18,270 stolen BTC have not moved and only a negligible amount has been cashed out. Reuters reports an Abu Dhabi court has ordered 18 firms, including Circle and World Liberty Financial, to keep the tokens frozen, and a hearing on 1 Dec will decide whether the freeze continues.",
+  "status": "Elliptic's 20 Nov update says the hackers emptied five of the nine largest ETH addresses from 17 to 20 Nov, moving about 488,000 ETH ($860M) and swapping part into bitcoin via THORChain; Crypto Briefing reports at least 2,310 BTC has gone through coinjoins, while the 18,270 BTC taken directly have not moved and about $2.35B still sits in linked addresses. Reuters reports an Abu Dhabi court has ordered 18 firms, including Circle and World Liberty Financial, to keep the tokens frozen, and a hearing on 1 Dec will decide whether the freeze continues.",
   "why": "Stolen ETH that no issuer can freeze is being moved and swapped, a supply overhang for ETH and alts while crypto sentiment sits at extreme fear.",
   "asset": "ETH",
   "asset_label": "Ether",
@@ -77,31 +82,6 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-12-01",
   "next_label": "Abu Dhabi court hearing on the freeze order",
-  "sources": "Elliptic, Reuters, Bitcoin.com News, The Cryptonomist, Cointribune, CryptoSlate, Decrypt, Binance"
- },
- {
-  "id": "anthropic-ipo",
-  "title": "Anthropic IPO, the largest AI listing",
-  "since": "2026-11-10T14:00:00Z",
-  "since_label": "Tue 10 Nov, when the price range was set",
-  "status": "Yahoo Finance and Seeking Alpha data show ANT closed Fri 20 Nov at $88.91, down 8.5% from its $97.17 debut close, after touching $83.05 against the $83 IPO price, then slipped to $87.79 after hours; TradingView lists a WSJ report on bankers trading blame over the fall in market value. Finviz lists leveraged and inverse ANT ETFs starting to trade Monday; whether ANT holds its IPO price and when it enters the Nasdaq 100 are still open.",
-  "why": "A raise this size absorbs cash that would otherwise chase other risk, and its first-day close reprices every AI name.",
-  "asset": "xyz:ANT",
-  "asset_label": "Anthropic pre-IPO perp",
-  "bench": "xyz:XYZ100",
-  "bench_label": "Nasdaq 100",
-  "odds": {
-   "slug": "anthropic-ipo-closing-market-cap-higher-strikes",
-   "pick": "<$1.25T",
-   "label": "First-day close below $1.25T"
-  },
-  "odds2": {
-   "slug": "anthropic-ipo-date",
-   "pick": "November 19",
-   "label": "Lists on 19 Nov"
-  },
-  "next_date": "2026-11-23",
-  "next_label": "Leveraged ANT ETFs list, Monday session",
-  "sources": "Yahoo Finance, Seeking Alpha, CNBC, CNN, WSJ, Morningstar, Finviz, Investing.com"
+  "sources": "Elliptic, Reuters, Bitcoin.com News, Cointribune, Crypto Briefing, Coincub, Decrypt, Binance"
  }
 ]
