@@ -1,5 +1,5 @@
 {
- "ran_at": "2026-11-23T09:00:03Z",
+ "ran_at": "2026-11-24T00:49:41Z",
  "key_present": true,
  "calls": {
   "aixbt_topics": {
@@ -99,15 +99,10 @@
     "updatedAt",
     "xHandle"
    ],
-   "tokens_fields": [
-    "address",
-    "chain",
-    "source"
-   ],
+   "tokens_type": "list",
    "coingeckoData_fields": [
     "apiId",
     "categories",
-    "contractAddress",
     "description",
     "slug",
     "symbol"
@@ -244,6 +239,7 @@
     "metrics",
     "momentumContext",
     "name",
+    "primaryComputedAt",
     "rank",
     "rankBand",
     "reinforcedAt",
