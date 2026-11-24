@@ -1,11 +1,11 @@
 {
- "ran_at": "2026-11-23T18:47:58Z",
+ "ran_at": "2026-11-24T18:24:18Z",
  "ok": true,
  "steps": {
   "wallets": {
    "changed": 0,
-   "added": 0,
-   "removed": 0,
+   "added": 1,
+   "removed": 1,
    "manual": 0,
    "errors": 0
   },
@@ -15,7 +15,7 @@
    "stories": true
   },
   "site": {
-   "built": "2026-11-23T18:54:25Z",
+   "built": "2026-11-24T18:30:09Z",
    "files": 19,
    "snapshots": 10
   }
@@ -25,11 +25,11 @@
   "model": "claude-opus-5-5",
   "before": 5,
   "after": 5,
-  "added": 0,
-  "removed": 0
+  "added": 1,
+  "removed": 1
  },
  "brief": {
   "model": "claude-opus-5-5",
-  "chars": 3574
+  "chars": 3662
  }
 }
