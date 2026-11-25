@@ -1,15 +1,12 @@
 {
- "ran_at": "2026-11-24T17:22:00Z",
+ "ran_at": "2026-11-25T02:08:07Z",
  "pegged_skipped": [
   "U",
   "RWUSD"
  ],
  "coins": 100,
- "last_hour": "2026-11-24T16:00:00Z",
+ "last_hour": "2026-11-25T01:00:00Z",
  "history_hours": 999,
- "chain_errors": [
-  "BSC stablecoins: IncompleteRead(118106 bytes read)"
- ],
  "chains": 8,
  "stable_readings_kept": 25
 }
