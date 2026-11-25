@@ -4,7 +4,7 @@
   "title": "Huang reinstated as Nvidia CEO, probes continue",
   "since": "2026-11-06T21:00:00Z",
   "since_label": "Fri 6 Nov close, the last price before the weekend reports",
-  "status": "Nvidia jumped 31.5% on Mon 23 Nov after Huang was reinstated, then retreated 7% on Tue 24 Nov, giving back some of the surge, Yahoo Finance and FinanceFeeds report; CNBC reports the board voted after assurances from Trump that Huang had not broken US national security laws. The board says its committee's investigation will proceed to conclusion, and Huang still faces closed-door House interviews on 1 Dec and a Senate Banking hearing on 3 Dec, Investing.com reports.",
+  "status": "CNBC reports Nvidia fell about 8% on Wed 25 Nov after a 5.9% drop Tuesday, according to GuruFocus, as the rally after Huang's return faded on worries about AI spending, tariffs and rates; Bloomberg reports the stock is still 35% below its 6 Oct peak and says the California probe continues. The board committee's investigation is still open, and Investing.com reports Huang faces closed-door House interviews on 1 Dec and a Senate Banking hearing on 3 Dec.",
   "why": "Nvidia is the anchor of the AI trade and one of the heaviest weights in the Nasdaq, which alts follow.",
   "asset": "xyz:NVDA",
   "asset_label": "Nvidia",
@@ -12,29 +12,29 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-12-01",
   "next_label": "House committees' closed-door interview with Huang, Senate hearing 3 Dec",
-  "sources": "Nvidia, CNBC, Yahoo Finance, FinanceFeeds, MS NOW, CNN, Investing.com"
+  "sources": "Nvidia, CNBC, Bloomberg, Yahoo Finance, GuruFocus, CNN, Al Jazeera, Investing.com"
  },
  {
   "id": "us-tariffs",
-  "title": "US readies sweeping new tariffs on China and EU",
+  "title": "US proposes new tariffs on China, EU and 12 others",
   "since": "2026-11-24T13:00:00Z",
   "since_label": "Tue 24 Nov 13:00 UTC, before the WSJ tariff report",
-  "status": "Citing the Wall Street Journal, Investing.com reports the administration is preparing broad new tariffs on China, the EU and dozens of other partners, and USTR Greer could unveil the findings of his subsidy probe as soon as this week; China would face the steepest rates and no rates or official announcement have been published. Bloomberg reports US stocks fell, led by chipmakers, as the tariff plans renewed trade concerns, with the Nasdaq 100 down about 3% by late morning; the final rates and timing are still open.",
+  "status": "Axios, CNBC and the Washington Post report that on Wed 25 Nov USTR Greer proposed Section 301 tariffs on 14 economies, including an extra 20% on most Chinese imports and 15% for the EU, Japan, South Korea, Taiwan and Switzerland; CNBC reports chipmakers led a sell-off that took the Nasdaq Composite down nearly 4%. The proposal now goes to public comment and hearings, and Greer told CNBC the tariffs likely will not take effect for months, while Axios cites an official saying China's rate could rise to 40% if talks break down.",
   "why": "Tariffs on China and the EU hit chip and AI hardware supply chains and feed inflation and Fed hike odds, which weigh on the Nasdaq and crypto together.",
   "asset": "",
   "asset_label": "",
   "bench": "xyz:XYZ100",
   "bench_label": "Nasdaq 100",
   "next_date": "",
-  "next_label": "USTR probe findings, possibly this week per WSJ",
-  "sources": "WSJ, Bloomberg, Investing.com, Yahoo Finance, KuCoin"
+  "next_label": "Public comment and hearings, not in force before January per a US official",
+  "sources": "USTR, WSJ, Axios, CNBC, Washington Post, Yahoo Finance, The Hill, Bloomberg"
  },
  {
   "id": "mstr-msci",
   "title": "MSCI drops Strategy from its indexes",
   "since": "2026-11-11T21:00:00Z",
   "since_label": "Wed 11 Nov close, before MSCI's after-hours announcement",
-  "status": "Bitcoin Magazine reports bitcoin slipped back to near $60,000 early Tuesday as the Nvidia rally cooled and spot ETFs posted another heavy day of outflows, and Strategy's 23 Nov 8-K shows it bought just 457 BTC for $29.6 million from 16 to 22 Nov. MSCI's deletion takes effect at the 30 Nov close and the revised index goes live 1 Dec; Yahoo Finance cites a JPMorgan estimate of up to $9B in outflows if other index providers follow, which is still open.",
+  "status": "Benzinga reports bitcoin fell 3.6% to about $57,862 by late morning Wed 25 Nov, and Bitcoin Magazine reports Strategy fell about 8% to near $71 in early trading after an 8.1% drop Tuesday. Crypto.news reports Strategy spent $211.8M buying back its STRC preferred shares last week against $29.6M on bitcoin; MSCI's deletion takes effect after the 30 Nov close, and it is still open whether other index providers will follow.",
   "why": "Strategy is the largest corporate BTC holder, and forced selling of its shares tests the main route equity money takes into bitcoin.",
   "asset": "xyz:MSTR",
   "asset_label": "Strategy",
@@ -42,14 +42,14 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-11-30",
   "next_label": "Deletion effective after close",
-  "sources": "MSCI, Strategy, Bitcoin Magazine, TradingNews, Investing News, Yahoo Finance, CoinGecko"
+  "sources": "MSCI, Strategy, Benzinga, Bitcoin Magazine, crypto.news, TradingNews, Investing News"
  },
  {
   "id": "anthropic-ipo",
   "title": "Anthropic IPO, the largest AI listing",
   "since": "2026-11-10T14:00:00Z",
   "since_label": "Tue 10 Nov, when the price range was set",
-  "status": "Bloomberg reports ANT fell as low as $76.03 on Tue 24 Nov in a broad equity pullback, after first breaking its $83 IPO price in premarket trading, down from Monday's $87.64 close. StockAnalysis reports filings show the CEO and President each sold 3.4M shares on 20 Nov; whether ANT regains its IPO price and when it joins the Nasdaq 100 are still open.",
+  "status": "Investing.com reports ANT closed Tue 24 Nov at $81.91, below its $83 IPO price, and Google Finance data show it hit a new low of $73.85 on Wed 25 Nov before trading near $79.60. CNBC reports analysts are still largely positive; whether ANT gets back above its IPO price and when it joins the Nasdaq 100 are still open.",
   "why": "A raise this size absorbs cash that would otherwise chase other risk, and its first-day close reprices every AI name.",
   "asset": "xyz:ANT",
   "asset_label": "Anthropic pre-IPO perp",
@@ -57,14 +57,14 @@
   "bench_label": "Nasdaq 100",
   "next_date": "",
   "next_label": "",
-  "sources": "Bloomberg, Yahoo Finance, Fast Company, StockAnalysis, Morningstar, CNBC, Robinhood"
+  "sources": "CNBC, Investing.com, Google Finance, StockAnalysis, Quartz, Fast Company, Bloomberg"
  },
  {
   "id": "iran-gulf",
   "title": "Iran and US trade strikes in the Gulf",
   "since": "2026-11-12T00:00:00Z",
   "since_label": "Thu 12 Nov 00:00 UTC, before Iran reported the Sirik strike",
-  "status": "Iranian state TV reported on Tue 24 Nov that chief negotiator Qalibaf said Tehran will not negotiate with Washington until Iran's seven conditions are met, which state media say include lifting the US naval blockade, and Iran said three tankers struck naval mines in Hormuz and caught fire, the Washington Post and Investing.com report. Iran's reported 14-tanker convoy at Kharg has not been confirmed sailing, Trump has said Washington could resume attacks after the new year, and no ceasefire has been announced.",
+  "status": "Reuters reports Iran's Revolutionary Guards said two more tankers hit naval mines and caught fire in Hormuz on Wed 25 Nov, and Fars reported a third; HNGN reports Saudi air defenses shot down drones over the Ras Tanura oil terminal. Tehran has tied reopening the strait to lifting the US naval blockade, and no ceasefire has been announced.",
   "why": "CoinDesk cites the Gulf escalation, with the dollar and Fed hike odds, behind the crypto sell-off; oil feeds straight into rate expectations.",
   "asset": "xyz:BRENTOIL",
   "asset_label": "Brent crude",
@@ -82,6 +82,6 @@
   },
   "next_date": "",
   "next_label": "",
-  "sources": "AP, Washington Post, Investing.com, The Business Standard, UKMTO, Fox News, Gulf News, CoinDesk"
+  "sources": "Reuters, Arab News, OilPrice, CNBC, Anadolu, HNGN, Tehran Times, CoinDesk"
  }
 ]
