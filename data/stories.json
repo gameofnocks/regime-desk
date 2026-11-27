@@ -4,7 +4,7 @@
   "title": "Huang reinstated as Nvidia CEO, probes continue",
   "since": "2026-11-06T21:00:00Z",
   "since_label": "Fri 6 Nov close, the last price before the weekend reports",
-  "status": "NBC News reports Nvidia closed down 3.9% on Wed 25 Nov, its second straight daily drop after a 31% jump Monday on Huang's return; Yahoo Finance reports Bernstein, Oppenheimer and StoneX have since upgraded the stock, and the Jerusalem Post, citing the Washington Post, reports Pentagon officials considered using the Defense Production Act to get Huang reinstated. BigGo Finance reports Nvidia's internal investigation is still active, and Politico, cited by Yahoo, reports Huang faces closed-door House interviews on 1 Dec, general counsel Tim Teter on 2 Dec and a public Senate Banking hearing on 3 Dec.",
+  "status": "Bloomberg, cited by Seeking Alpha and The Next Web, reports Nvidia Blackwell racks appeared in Chinese loan filings for a Shanghai data center linked to Megaspeed's founder, and it says it is unclear whether those shipments had US approval; Yahoo Finance reports Nvidia flipped from a 2% gain at Friday's open to a 2% loss, and Forbes reports Trump again said Huang poses no security risk. Huang still faces a closed-door House interview on 1 Dec and a Senate Banking hearing on 3 Dec, and MS NOW reports the commerce secretary has agreed to testify to Senate Banking, though no date is set.",
   "why": "Nvidia is the anchor of the AI trade and one of the heaviest weights in the Nasdaq, which alts follow.",
   "asset": "xyz:NVDA",
   "asset_label": "Nvidia",
@@ -12,14 +12,14 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-12-01",
   "next_label": "House closed-door interview with Huang, Teter 2 Dec, Senate hearing 3 Dec",
-  "sources": "Nvidia, NBC News, Yahoo Finance, Washington Post, Jerusalem Post, Politico, BigGo Finance, CNN, SCMP"
+  "sources": "Bloomberg, Seeking Alpha, The Next Web, Yahoo Finance, Forbes, MS NOW, CNBC, Politico"
  },
  {
   "id": "mstr-msci",
   "title": "MSCI drops Strategy from its indexes",
   "since": "2026-11-11T21:00:00Z",
   "since_label": "Wed 11 Nov close, before MSCI's after-hours announcement",
-  "status": "FinanceFeeds reports bitcoin was near $60,686 on Thu 26 Nov, up about 6% in 24 hours but down about 22% for November, as spot ETFs log a record $5.39B of monthly outflows; Investing News reports Strategy raised its buyback cap to $4B and holds 851,305 BTC at an average cost of about $75,446. MSCI's deletion takes effect after the 30 Nov close, and it is still open whether other index providers will follow.",
+  "status": "Yahoo Finance shows Strategy up 2.7% on Fri 27 Nov, and Rolling Out reports the stock is still down about 39% for November after a 52-week low near $70 on 25 Nov; Coinbase shows bitcoin near $61,500, still about 18% below Strategy's average cost of $75,446. MSCI's deletion takes effect after Monday's 30 Nov close, and the Motley Fool says MSCI's screen gives other index providers a template, though none has yet said it will follow.",
   "why": "Strategy is the largest corporate BTC holder, and forced selling of its shares tests the main route equity money takes into bitcoin.",
   "asset": "xyz:MSTR",
   "asset_label": "Strategy",
@@ -27,44 +27,29 @@
   "bench_label": "Nasdaq 100",
   "next_date": "2026-11-30",
   "next_label": "Deletion effective after close",
-  "sources": "MSCI, Strategy, FinanceFeeds, Investing News, Benzinga, crypto.news, FXStreet"
+  "sources": "MSCI, Strategy, Yahoo Finance, Rolling Out, Motley Fool, Coinbase, Decrypt, CoinDesk"
  },
  {
   "id": "us-tariffs",
   "title": "US proposes new tariffs on China, EU and 12 others",
   "since": "2026-11-24T13:00:00Z",
   "since_label": "Tue 24 Nov 13:00 UTC, before the WSJ tariff report",
-  "status": "CNBC and Yahoo Finance report that USTR Greer on Wed 25 Nov proposed Section 301 tariffs on 14 economies, including an extra 20% on most Chinese goods on top of existing duties, and Greer told CNBC much of it is already priced in; FinanceFeeds, citing CNBC, reports the Nasdaq Composite recovered from a steep early drop and closed down 0.62%. The proposal goes to public comment and a hearing, and Greer says it likely will not take effect for months, while the AP reports the US-China trade truce expires on 10 Jan 2027.",
+  "status": "China's Commerce Ministry said on Thu 26 Nov that it firmly opposes the Section 301 proposal and reserves the right to take necessary measures (reported by Xinhua and by Bloomberg via Business Standard), and Bloomberg says Washington is holding a 40% China tariff threat in reserve. Written comments are due on 5 Jan 2027 and hearings start on 25 Jan, the AP reports the US-China truce expires on 10 Jan, and Yahoo Finance reports the Nasdaq rebounded on Friday.",
   "why": "Tariffs on China and the EU hit chip and AI hardware supply chains and feed inflation and Fed hike odds, which weigh on the Nasdaq and crypto together.",
   "asset": "",
   "asset_label": "",
   "bench": "xyz:XYZ100",
   "bench_label": "Nasdaq 100",
-  "next_date": "2027-01-10",
-  "next_label": "US-China trade truce expires; tariffs await public comment and a hearing",
-  "sources": "USTR, CNBC, Yahoo Finance, AP, Boston Globe, FinanceFeeds, BBC, The Hill"
- },
- {
-  "id": "anthropic-ipo",
-  "title": "Anthropic IPO, the largest AI listing",
-  "since": "2026-11-10T14:00:00Z",
-  "since_label": "Tue 10 Nov, when the price range was set",
-  "status": "Yahoo Finance and Investing.com report ANT closed Wed 25 Nov at $82.79, up 1.1%, after an intraday low of $73.85, and 24/7 Wall St reports it briefly traded back above its $83 IPO price; Yahoo Finance shows $84.25 after hours, and US markets are closed Thursday. Yahoo Finance says investors are weighing upcoming lock-up expiries, and the timing of those expiries and of Nasdaq 100 inclusion is still open.",
-  "why": "A raise this size absorbs cash that would otherwise chase other risk, and its first-day close reprices every AI name.",
-  "asset": "xyz:ANT",
-  "asset_label": "Anthropic pre-IPO perp",
-  "bench": "xyz:XYZ100",
-  "bench_label": "Nasdaq 100",
-  "next_date": "",
-  "next_label": "",
-  "sources": "Yahoo Finance, Investing.com, 24/7 Wall St, StockAnalysis, CNBC, CNN"
+  "next_date": "2027-01-05",
+  "next_label": "Comments due; US-China truce expires 10 Jan, hearings from 25 Jan",
+  "sources": "USTR, CNBC, Xinhua, Bloomberg, Business Standard, AP, Boston Globe, Yahoo Finance"
  },
  {
   "id": "iran-gulf",
   "title": "Iran and US trade strikes in the Gulf",
   "since": "2026-11-12T00:00:00Z",
   "since_label": "Thu 12 Nov 00:00 UTC, before Iran reported the Sirik strike",
-  "status": "Reuters, via the Times of Israel, reports Iran's Revolutionary Guards said on Thu 26 Nov that two more tankers, one a supertanker carrying over 2 million barrels, hit mines and caught fire north of Oman's Khasab; Arab News reports an earlier Guards claim that an LNG carrier hit a mine Wed evening, which Reuters could not verify. The Jerusalem Post reports Tehran says normal shipping will not resume until the US lifts its naval blockade, and no ceasefire has been announced.",
+  "status": "CBS News and ABC News report Iran's Revolutionary Guards claimed on Thu 26 Nov that two more tankers hit mines north of Khasab, and Kuwait says an Iranian drone attack killed two Italians; CBS reports Trump has called Iran's mine claims lies meant to push up energy prices, and Yahoo News notes the claims could not be independently verified. No ceasefire has been announced, and the US naval blockade of Iranian ports stays in place.",
   "why": "CoinDesk cites the Gulf escalation, with the dollar and Fed hike odds, behind the crypto sell-off; oil feeds straight into rate expectations.",
   "asset": "xyz:BRENTOIL",
   "asset_label": "Brent crude",
@@ -82,6 +67,21 @@
   },
   "next_date": "",
   "next_label": "",
-  "sources": "Reuters, Times of Israel, Arab News, Jerusalem Post, OilPrice, CNBC, CBS News, CoinDesk"
+  "sources": "Reuters, CBS News, ABC News, Yahoo News, CNBC, Times of Israel, CoinDesk"
+ },
+ {
+  "id": "anthropic-ipo",
+  "title": "Anthropic IPO, the largest AI listing",
+  "since": "2026-11-10T14:00:00Z",
+  "since_label": "Tue 10 Nov, when the price range was set",
+  "status": "Seeking Alpha reports ANT rose about 9% to $90.06 on Fri 27 Nov, back above its $83 IPO price, and notes Morningstar's fair value estimate of $92; KuCoin News reports the stock is still about 23% below its debut-day high of $115.10. TipRanks reports 15.5 billion pre-IPO shares are under lock-ups across 23 release dates, with founder stakes restricted until spring 2027, and the timing of Nasdaq 100 inclusion is still open.",
+  "why": "A raise this size absorbs cash that would otherwise chase other risk, and its first-day close reprices every AI name.",
+  "asset": "xyz:ANT",
+  "asset_label": "Anthropic pre-IPO perp",
+  "bench": "xyz:XYZ100",
+  "bench_label": "Nasdaq 100",
+  "next_date": "",
+  "next_label": "",
+  "sources": "Seeking Alpha, TipRanks, TradingView, KuCoin News, Yahoo Finance, Investing.com, CNBC"
  }
 ]
