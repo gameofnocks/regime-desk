@@ -1,5 +1,5 @@
 {
- "ran_at": "2026-11-26T22:20:08Z",
+ "ran_at": "2026-11-27T09:39:49Z",
  "key_present": true,
  "calls": {
   "aixbt_topics": {
@@ -99,15 +99,10 @@
     "updatedAt",
     "xHandle"
    ],
-   "tokens_fields": [
-    "address",
-    "chain",
-    "source"
-   ],
+   "tokens_type": "list",
    "coingeckoData_fields": [
     "apiId",
     "categories",
-    "contractAddress",
     "description",
     "slug",
     "symbol"
@@ -169,89 +164,8 @@
     "description",
     "id",
     "metrics",
-    "momentumContext",
-    "name",
-    "rank",
-    "rankBand",
-    "reinforcedAt",
-    "signals",
-    "tokens",
-    "trendScore",
-    "trendScoreDelta",
-    "updatedAt",
-    "xHandle"
-   ],
-   "tokens_fields": [
-    "address",
-    "chain",
-    "source"
-   ],
-   "coingeckoData_fields": [
-    "apiId",
-    "categories",
-    "contractAddress",
-    "description",
-    "slug",
-    "symbol"
-   ],
-   "metrics_fields": [
-    "high24h",
-    "lastUpdatedAt",
-    "low24h",
-    "priceChange14d",
-    "priceChange7d",
-    "usd",
-    "usd24hChange",
-    "usd24hVol",
-    "usdMarketCap"
-   ],
-   "signals_fields": [
-    "activity",
-    "category",
-    "citations",
-    "clusters",
-    "cut",
-    "description",
-    "detectedAt",
-    "hasOfficialSource",
-    "headline",
-    "id",
-    "observationCount",
-    "projectId",
-    "projectName",
-    "referencesMetrics",
-    "reinforcedAt",
-    "sentiment"
-   ],
-   "momentumContext_fields": [
-    "bestRank14d",
-    "distinctClusters",
-    "leaderboard",
-    "peakRank48h",
-    "rankedSince",
-    "trendTrajectory"
-   ]
-  },
-  "aixbt_base_buzz": {
-   "http": 200,
-   "top": [
-    "data",
-    "meta",
-    "pagination",
-    "status"
-   ],
-   "count": 50,
-   "fields": [
-    "coingeckoData",
-    "createdAt",
-    "description",
-    "id",
-    "metrics",
-    "momentumContext",
     "name",
     "primaryComputedAt",
-    "rank",
-    "rankBand",
     "reinforcedAt",
     "signals",
     "tokens",
@@ -300,6 +214,84 @@
     "headline",
     "id",
     "observationCount",
+    "officialSourceUrl",
+    "projectId",
+    "projectName",
+    "referencesMetrics",
+    "reinforcedAt",
+    "sentiment"
+   ]
+  },
+  "aixbt_base_buzz": {
+   "http": 200,
+   "top": [
+    "data",
+    "meta",
+    "pagination",
+    "status"
+   ],
+   "count": 50,
+   "fields": [
+    "coingeckoData",
+    "createdAt",
+    "description",
+    "id",
+    "metrics",
+    "momentumContext",
+    "name",
+    "primaryComputedAt",
+    "rank",
+    "rankBand",
+    "reinforcedAt",
+    "signals",
+    "tokens",
+    "trendScore",
+    "trendScoreDelta",
+    "updatedAt",
+    "xHandle"
+   ],
+   "tokens_fields": [
+    "address",
+    "chain",
+    "primary",
+    "source"
+   ],
+   "coingeckoData_fields": [
+    "apiId",
+    "categories",
+    "contractAddress",
+    "description",
+    "slug",
+    "symbol"
+   ],
+   "metrics_fields": [
+    "athChangePct",
+    "athDate",
+    "athUsd",
+    "high24h",
+    "lastUpdatedAt",
+    "low24h",
+    "priceChange14d",
+    "priceChange30d",
+    "priceChange7d",
+    "usd",
+    "usd24hChange",
+    "usd24hVol",
+    "usdMarketCap"
+   ],
+   "signals_fields": [
+    "activity",
+    "category",
+    "citations",
+    "clusters",
+    "cut",
+    "description",
+    "detectedAt",
+    "hasOfficialSource",
+    "headline",
+    "id",
+    "observationCount",
+    "officialSourceUrl",
     "projectId",
     "projectName",
     "referencesMetrics",
@@ -330,10 +322,8 @@
     "description",
     "id",
     "metrics",
-    "momentumContext",
     "name",
-    "rank",
-    "rankBand",
+    "primaryComputedAt",
     "reinforcedAt",
     "signals",
     "tokens",
@@ -356,10 +346,14 @@
     "symbol"
    ],
    "metrics_fields": [
+    "athChangePct",
+    "athDate",
+    "athUsd",
     "high24h",
     "lastUpdatedAt",
     "low24h",
     "priceChange14d",
+    "priceChange30d",
     "priceChange7d",
     "usd",
     "usd24hChange",
@@ -378,19 +372,12 @@
     "headline",
     "id",
     "observationCount",
+    "officialSourceUrl",
     "projectId",
     "projectName",
     "referencesMetrics",
     "reinforcedAt",
     "sentiment"
-   ],
-   "momentumContext_fields": [
-    "bestRank14d",
-    "distinctClusters",
-    "leaderboard",
-    "peakRank48h",
-    "rankedSince",
-    "trendTrajectory"
    ]
   }
  }
