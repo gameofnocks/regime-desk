@@ -1,5 +1,5 @@
 {
- "ran_at": "2026-11-27T21:57:19Z",
+ "ran_at": "2026-11-28T08:54:18Z",
  "key_present": true,
  "calls": {
   "aixbt_topics": {
@@ -99,10 +99,15 @@
     "updatedAt",
     "xHandle"
    ],
-   "tokens_type": "list",
+   "tokens_fields": [
+    "address",
+    "chain",
+    "source"
+   ],
    "coingeckoData_fields": [
     "apiId",
     "categories",
+    "contractAddress",
     "description",
     "slug",
     "symbol"
@@ -164,8 +169,10 @@
     "description",
     "id",
     "metrics",
+    "momentumContext",
     "name",
-    "primaryComputedAt",
+    "rank",
+    "rankBand",
     "reinforcedAt",
     "signals",
     "tokens",
@@ -188,14 +195,10 @@
     "symbol"
    ],
    "metrics_fields": [
-    "athChangePct",
-    "athDate",
-    "athUsd",
     "high24h",
     "lastUpdatedAt",
     "low24h",
     "priceChange14d",
-    "priceChange30d",
     "priceChange7d",
     "usd",
     "usd24hChange",
@@ -220,6 +223,14 @@
     "referencesMetrics",
     "reinforcedAt",
     "sentiment"
+   ],
+   "momentumContext_fields": [
+    "bestRank14d",
+    "distinctClusters",
+    "leaderboard",
+    "peakRank48h",
+    "rankedSince",
+    "trendTrajectory"
    ]
   },
   "aixbt_base_buzz": {
@@ -320,8 +331,10 @@
     "description",
     "id",
     "metrics",
+    "momentumContext",
     "name",
-    "primaryComputedAt",
+    "rank",
+    "rankBand",
     "reinforcedAt",
     "signals",
     "tokens",
@@ -344,14 +357,10 @@
     "symbol"
    ],
    "metrics_fields": [
-    "athChangePct",
-    "athDate",
-    "athUsd",
     "high24h",
     "lastUpdatedAt",
     "low24h",
     "priceChange14d",
-    "priceChange30d",
     "priceChange7d",
     "usd",
     "usd24hChange",
@@ -376,6 +385,14 @@
     "referencesMetrics",
     "reinforcedAt",
     "sentiment"
+   ],
+   "momentumContext_fields": [
+    "bestRank14d",
+    "distinctClusters",
+    "leaderboard",
+    "peakRank48h",
+    "rankedSince",
+    "trendTrajectory"
    ]
   }
  }
